@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Breakpoints>
+  <Breakpoint filename="C:\Replicator2010Primary" description="client\SP2010Replicator\ReplicatorPrimary\ReplicatorPrimaryMain.cs"/>
+  <Breakpoint filename="C:\Replicator2010Secondary" description="client\SP2010Replicator\ReplicatorSecondary\ReplicatorSecondaryMain.cs"/>
+  <Breakpoint filename="C:\ReplicatorBackup.stop" description="client\SP2010Replicator\ReplicatorControl\ReplicatorBackup.cs"/>
+  <Breakpoint filename="C:\ReplicatorRestore.stop" description="client\SP2010Replicator\ReplicatorControl\ReplicatorRestore.cs"/>
+  <Breakpoint filename="C:\Replicator2010Analyzer" description="client\SP2010Replicator\ReplicatorAnalyzer\AnalyzerMain.cs"/>
+  <Breakpoint filename="C:\Replicator2010Listener" description="client\SP2010Replicator\ReplicatorListener\ReplicatorListenerMain.cs"/>
+  <Breakpoint filename="C:\Replicator2010Listener" description="client\SP2010Replicator\ReplicatorListener\ReplicatorListenerMain.cs"/>
+</Breakpoints>

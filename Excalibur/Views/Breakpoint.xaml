@@ -1,0 +1,50 @@
+﻿<UserControl x:Class="Excalibur.Views.Breakpoint"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:prism="http://prismlibrary.com/"
+             prism:ViewModelLocator.AutoWireViewModel="True"
+             xmlns:mahapps="http://metro.mahapps.com/winfx/xaml/controls"
+             mc:Ignorable="d"
+             d:DesignHeight="300" d:DesignWidth="300">
+
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <Style x:Key="MahAppsDataGrid"
+                   BasedOn="{StaticResource AzureDataGrid}"
+                   TargetType="{x:Type DataGrid}">
+                <Setter Property="AutoGenerateColumns" Value="False"/>
+                <Setter Property="CanUserAddRows" Value="False"/>
+                <Setter Property="CanUserDeleteRows" Value="False"/>
+                <Setter Property="IsReadOnly" Value="True"/>
+            </Style>
+            <Style x:Key="MahAppsToggleSwitch"
+                   BasedOn="{StaticResource MahApps.Metro.Styles.ToggleSwitch}"
+                   TargetType="{x:Type mahapps:ToggleSwitch}">
+                <Setter Property="OnLabel" Value="Enable"/>
+                <Setter Property="OffLabel" Value="Disable"/>
+                <Setter Property="SwitchForeground" Value="Red"/>
+            </Style>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid>
+        <DataGrid Name="DataGrid" Style="{StaticResource MahAppsDataGrid}">
+            <DataGrid.Columns>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <mahapps:ToggleSwitch ContentStringFormat="Status: {0}"
+                                                  IsChecked="{Binding IsChecked}"
+                                                  Tag="{Binding FileName}"
+                                                  PreviewMouseLeftButtonDown="PreCheckedChanged"
+                                                  Style="{StaticResource MahAppsToggleSwitch}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn x:Name="FileName" Binding="{Binding FileName}" />
+                <DataGridTextColumn x:Name="Description" Binding="{Binding Description}" />
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</UserControl>

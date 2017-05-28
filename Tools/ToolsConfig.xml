@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Configuration>
+	<ContentPanelViews>
+		<!-- name: display name -->
+		<ContentPanelView name="AvalonDock"
+						  icon="Images/dock_blue.png"
+						  assembly="Tools, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"
+						  type="Tools.ContentPanel.AvalonDock" />
+		<ContentPanelView name="TabControl"
+						  icon="Images/tab_blue.png"
+						  assembly="Tools, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"
+						  type="Tools.ContentPanel.TabControl" />
+		<ContentPanelView />
+
+	</ContentPanelViews>
+
+	<Modules>
+		<Module name="Breakpoint"
+				icon="Images/breakpoint.png"
+				assembly="Excalibur, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"
+				type="Excalibur.Views.Breakpoint"/>
+		<Module name="Taskmgr"
+				icon="Images/taskmgr.png"
+				assembly="Excalibur, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"
+				type="Excalibur.Views.TaskManager"/>
+		<Module name="Console"
+				icon="Images/console.png"
+				assembly="Excalibur, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"
+				type="Excalibur.Views.Console"/>
+
+	</Modules>
+</Configuration>

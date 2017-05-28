@@ -1,0 +1,64 @@
+﻿<UserControl x:Class="Tools.Views.RibbonUI"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Tools.Views"
+             xmlns:fluent="urn:fluent-ribbon"
+             xmlns:prism="http://prismlibrary.com/"
+             prism:ViewModelLocator.AutoWireViewModel="True"
+             mc:Ignorable="d" 
+             d:DesignHeight="360" d:DesignWidth="640">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+
+        <fluent:Ribbon Grid.Row="0" >
+            <fluent:Ribbon.Menu>
+                <fluent:Backstage>
+                    <fluent:BackstageTabControl>
+                        <fluent:BackstageTabItem Header="{Binding RibbonUI_Quit}"/>
+                    </fluent:BackstageTabControl>
+                </fluent:Backstage>
+            </fluent:Ribbon.Menu>
+
+            <fluent:RibbonTabItem Header="{Binding RibbonUI_Views}">
+                <fluent:RibbonGroupBox Header="{Binding RibbonUI_ViewsGroup}">
+                    <local:RibbonViewsMenu />
+                </fluent:RibbonGroupBox>
+            </fluent:RibbonTabItem>
+
+            <fluent:RibbonTabItem x:Name="AddInRibbonTabItem" Header="{Binding RibbonUI_AddIns}" >
+                <fluent:RibbonGroupBox Header="group">
+                    <local:RibbonAddInsMenu />
+                </fluent:RibbonGroupBox>
+            </fluent:RibbonTabItem>
+        </fluent:Ribbon>
+
+        <ContentControl Grid.Row="1"  prism:RegionManager.RegionName="{Binding CenterRegion}" />
+
+        <fluent:StatusBar Grid.Row="2" >
+            <fluent:StatusBarItem Title="Left placed item"
+                                  Value="150" 
+                                  HorizontalAlignment="Left">
+                <TextBlock Text="150px"/>
+            </fluent:StatusBarItem>
+
+            <Separator HorizontalAlignment="Left"/>
+
+            <fluent:StatusBarItem Title="Second left placed item"
+                                  Value="Value shown in ContextMenu"
+                                  ToolTip="Your ToolTip"
+                                  Content="Content shown in StatusBar"
+                                  HorizontalAlignment="Left"/>
+
+            <fluent:StatusBarItem Title="Item placed on the right side"
+                                  HorizontalAlignment="Right"
+                                  Value="Your value which is also used as content if no content set."/>
+        </fluent:StatusBar>
+
+    </Grid>
+</UserControl>

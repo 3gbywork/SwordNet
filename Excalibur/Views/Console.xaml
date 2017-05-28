@@ -1,0 +1,88 @@
+﻿<UserControl x:Class="Excalibur.Views.Console"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Excalibur.Views"
+             xmlns:mahapps="http://metro.mahapps.com/winfx/xaml/controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+
+    <UserControl.Resources>
+        <DataTemplate x:Key="HamburgerMenuImageItem" DataType="{x:Type mahapps:HamburgerMenuItem}">
+            <Grid Height="48">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="48" />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <TextBlock Margin="12"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           FontSize="16"
+                           Text="{Binding Tag}" />
+                <TextBlock Grid.Column="1"
+                           VerticalAlignment="Center"
+                           FontSize="16"
+                           Text="{Binding Label}" />
+            </Grid>
+        </DataTemplate>
+        <Style TargetType="Button">
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="Padding" Value="5"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+        </Style>
+    </UserControl.Resources>
+    <Grid>
+        <mahapps:HamburgerMenu ItemTemplate="{StaticResource HamburgerMenuImageItem}">
+            <mahapps:HamburgerMenu.ItemsSource>
+                <mahapps:HamburgerMenuItemCollection>
+                    <mahapps:HamburgerMenuItem Tag="t1" Label="test1"/>
+                    <mahapps:HamburgerMenuItem Tag="t2" Label="test2"/>
+                    <mahapps:HamburgerMenuItem Tag="t3" Label="test3"/>
+                    <mahapps:HamburgerMenuItem Tag="t4" Label="test4"/>
+                </mahapps:HamburgerMenuItemCollection>
+            </mahapps:HamburgerMenu.ItemsSource>
+            <mahapps:HamburgerMenu.ContentTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="48" />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Border Grid.Row="0" Background="#7A7A7A">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="3*"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center"
+                                           FontSize="24"
+                                           Foreground="White"
+                                           Text="{Binding Label}" />
+                                <StackPanel x:Name="ButtonPanel" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Left">
+                                    <Button Content="StartButton" IsEnabled="{Binding State}"/>
+                                    <Button Content="StopButton" IsEnabled="{Binding State}"/>
+                                    <Button Content="ClearButton" IsEnabled="{Binding State}"/>
+                                </StackPanel>
+                            </Grid>
+                        </Border>
+                        <mahapps:TransitioningContentControl Grid.Row="1"
+                                                             Content="{Binding Content}"
+                                                             RestartTransitionOnContentChange="True"
+                                                             Transition="Default">
+                            <mahapps:TransitioningContentControl.ContentTemplate>
+                                <DataTemplate>
+                                    <ContentControl Content="{Binding}"/>
+                                </DataTemplate>
+                            </mahapps:TransitioningContentControl.ContentTemplate>
+                        </mahapps:TransitioningContentControl>
+                    </Grid>
+                </DataTemplate>
+            </mahapps:HamburgerMenu.ContentTemplate>
+        </mahapps:HamburgerMenu>
+
+    </Grid>
+</UserControl>
