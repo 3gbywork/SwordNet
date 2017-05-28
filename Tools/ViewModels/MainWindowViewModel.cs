@@ -1,4 +1,7 @@
-﻿using Prism.Mvvm;
+﻿using System.Windows;
+using System.Windows.Input;
+using Prism.Mvvm;
+using Tools.Commands;
 using Utility.Config;
 using Utility.Prism;
 
@@ -21,11 +24,17 @@ namespace Tools.ViewModels
         public string ContentRegion { get { return RegionNameConstants.ContentRegion; } }
         public string CenterRegion { get { return RegionNameConstants.CenterRegion; } }
 
-        private bool isActive = true;
-        public bool IsActive
+        private RelayCommand quitCommand;
+        public ICommand QuitCommand
         {
-            get { return isActive; }
-            set { SetProperty(ref isActive, value); }
+            get
+            {
+                if (quitCommand == null)
+                {
+                    quitCommand = new RelayCommand(Application.Current.Shutdown, () => { return true; });
+                }
+                return quitCommand;
+            }
         }
     }
 }

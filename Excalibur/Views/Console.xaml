@@ -19,7 +19,7 @@
                            HorizontalAlignment="Center"
                            VerticalAlignment="Center"
                            FontSize="16"
-                           Text="{Binding Tag}" />
+                           Text="{Binding Glyph}" />
                 <TextBlock Grid.Column="1"
                            VerticalAlignment="Center"
                            FontSize="16"
@@ -32,17 +32,22 @@
             <Setter Property="HorizontalContentAlignment" Value="Center"/>
             <Setter Property="VerticalContentAlignment" Value="Center"/>
         </Style>
+        <!--这种方式设置Stack Panel的样式会导致Button的排版出现问题-->
+        <!--<Style TargetType="StackPanel">
+            <Setter Property="Orientation" Value="Horizontal"/>
+            <Setter Property="FlowDirection" Value="RightToLeft"/>
+            <Setter Property="HorizontalAlignment" Value="Right"/>
+        </Style>-->
     </UserControl.Resources>
     <Grid>
-        <mahapps:HamburgerMenu ItemTemplate="{StaticResource HamburgerMenuImageItem}">
+        <mahapps:HamburgerMenu ItemTemplate="{StaticResource HamburgerMenuImageItem}"
+                               x:Name="Menu"
+                               PreviewKeyDown="Menu_PreviewKeyDown"
+                               ItemClick="Menu_ItemClick">
             <mahapps:HamburgerMenu.ItemsSource>
-                <mahapps:HamburgerMenuItemCollection>
-                    <mahapps:HamburgerMenuItem Tag="t1" Label="test1"/>
-                    <mahapps:HamburgerMenuItem Tag="t2" Label="test2"/>
-                    <mahapps:HamburgerMenuItem Tag="t3" Label="test3"/>
-                    <mahapps:HamburgerMenuItem Tag="t4" Label="test4"/>
-                </mahapps:HamburgerMenuItemCollection>
+                <mahapps:HamburgerMenuItemCollection x:Name="MenuItemCollection"/>
             </mahapps:HamburgerMenu.ItemsSource>
+
             <mahapps:HamburgerMenu.ContentTemplate>
                 <DataTemplate>
                     <Grid>
@@ -61,11 +66,12 @@
                                            VerticalAlignment="Center"
                                            FontSize="24"
                                            Foreground="White"
-                                           Text="{Binding Label}" />
-                                <StackPanel x:Name="ButtonPanel" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Left">
-                                    <Button Content="StartButton" IsEnabled="{Binding State}"/>
-                                    <Button Content="StopButton" IsEnabled="{Binding State}"/>
-                                    <Button Content="ClearButton" IsEnabled="{Binding State}"/>
+                                           Text="{Binding Title}"/>
+                                <StackPanel Grid.Column="1" Orientation="Horizontal"
+                                            FlowDirection="RightToLeft" HorizontalAlignment="Right">
+                                    <Button Content="{Binding ClearButtonTitle}" IsEnabled="{Binding ClearButtonState}" Command="{Binding ConsoleActionCommand}" CommandParameter="Clear"/>
+                                    <Button Content="{Binding StopButtonTitle}" IsEnabled="{Binding StopButtonState}" Command="{Binding ConsoleActionCommand}" CommandParameter="Stop"/>
+                                    <Button Content="{Binding StartButtonTitle}" IsEnabled="{Binding StartButtonState}" Command="{Binding ConsoleActionCommand}" CommandParameter="Start"/>
                                 </StackPanel>
                             </Grid>
                         </Border>
@@ -75,7 +81,7 @@
                                                              Transition="Default">
                             <mahapps:TransitioningContentControl.ContentTemplate>
                                 <DataTemplate>
-                                    <ContentControl Content="{Binding}"/>
+                                    <ListBox ItemsSource="{Binding}"/>
                                 </DataTemplate>
                             </mahapps:TransitioningContentControl.ContentTemplate>
                         </mahapps:TransitioningContentControl>

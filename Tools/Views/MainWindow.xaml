@@ -13,6 +13,5 @@
 
     <Grid>
         <ContentControl prism:RegionManager.RegionName="{Binding ContentRegion}"/>
-        <!--<mahapps:ProgressRing IsActive="{Binding IsActive}" IsTabStop="True"/>-->
     </Grid>
 </Window>

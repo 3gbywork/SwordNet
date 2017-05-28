@@ -2,8 +2,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
-using System.Security.Cryptography;
-using System.Windows;
 using System.Windows.Input;
 using Fluent;
 using Microsoft.Practices.Unity;
@@ -14,6 +12,10 @@ using Utility.Security;
 
 namespace Tools.Business
 {
+    /// <summary>
+    /// 将插件加载到Ribbon菜单
+    /// 响应按钮点击事件，将插件加载到内容控件
+    /// </summary>
     class RibbonButtonUtility
     {
         static Logger mLogger = new Logger(MethodBase.GetCurrentMethod().DeclaringType);

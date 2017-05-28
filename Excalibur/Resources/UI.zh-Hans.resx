@@ -123,4 +123,13 @@
   <data name="Breakpoint_FileName" xml:space="preserve">
     <value>文件名</value>
   </data>
+  <data name="Console_ClearButtonTitle" xml:space="preserve">
+    <value>清除</value>
+  </data>
+  <data name="Console_StartButtonTitle" xml:space="preserve">
+    <value>开始</value>
+  </data>
+  <data name="Console_StopButtonTitle" xml:space="preserve">
+    <value>停止</value>
+  </data>
 </root>

@@ -127,6 +127,8 @@
     <Compile Include="Business\RibbonButtonUtility.cs" />
     <Compile Include="Commands\AddInCommand.cs" />
     <Compile Include="Commands\ContentPanelCommand.cs" />
+    <Compile Include="Commands\IRelayCommand.cs" />
+    <Compile Include="Commands\RelayCommand.cs" />
     <Compile Include="Config\ToolsConfig.cs" />
     <Compile Include="ContentPanel\AvalonDock.xaml.cs">
       <DependentUpon>AvalonDock.xaml</DependentUpon>

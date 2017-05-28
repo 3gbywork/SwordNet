@@ -2,7 +2,7 @@
 
 namespace Excalibur.Models
 {
-    public class BreakpointModel : INotifyPropertyChanged
+    public class BreakpointModel : ModelBase
     {
         private bool isChecked;
         public bool IsChecked
@@ -11,19 +11,10 @@ namespace Excalibur.Models
             set
             {
                 isChecked = value;
-                DoNotification("IsChecked");
+                DoNotification(nameof(IsChecked));
             }
         }
         public string FileName { get; set; }
         public string Description { get; set; }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-        public void DoNotification(string propertyName)
-        {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged.Invoke(this, new PropertyChangedEventArgs(propertyName));
-            }
-        }
     }
 }

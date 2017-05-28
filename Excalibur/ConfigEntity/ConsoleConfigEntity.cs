@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Xml;
 using Excalibur.Models;
 using Utility.Config;
@@ -34,7 +30,7 @@ namespace Excalibur.Config
             var nodes = xmlElement.SelectNodes("Agent");
             foreach (XmlElement node in nodes)
             {
-                path = node.GetAttribute("path").Replace(@"//", @"/");
+                path = node.GetAttribute("path").Replace(@"//", @"/").Trim();
                 if (!string.IsNullOrEmpty(path) && paths.Add(path))
                 {
                     ConsoleModel consoleModel = new ConsoleModel

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Input;
 using Tools.Business;
+using Tools.Models;
 
 namespace Tools.Commands
 {
@@ -10,7 +11,13 @@ namespace Tools.Commands
 
         public bool CanExecute(object parameter)
         {
-            return true;
+            if (parameter == null)
+            {
+                return true;
+            }
+
+            var param = parameter as IRibbonButtonInfo;
+            return param != null;
         }
 
         public void Execute(object parameter)

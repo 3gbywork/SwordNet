@@ -77,5 +77,32 @@ namespace Excalibur.Resources {
                 return ResourceManager.GetString("Breakpoint_FileName", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   查找类似 Clear 的本地化字符串。
+        /// </summary>
+        public static string Console_ClearButtonTitle {
+            get {
+                return ResourceManager.GetString("Console_ClearButtonTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Start 的本地化字符串。
+        /// </summary>
+        public static string Console_StartButtonTitle {
+            get {
+                return ResourceManager.GetString("Console_StartButtonTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Stop 的本地化字符串。
+        /// </summary>
+        public static string Console_StopButtonTitle {
+            get {
+                return ResourceManager.GetString("Console_StopButtonTitle", resourceCulture);
+            }
+        }
     }
 }

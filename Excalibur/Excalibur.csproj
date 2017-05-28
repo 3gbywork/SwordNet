@@ -72,16 +72,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Business\BreakpointOperator.cs" />
-    <Compile Include="Config\BreakpointConfigEntity.cs" />
-    <Compile Include="Config\ConsoleConfigEntity.cs" />
+    <Compile Include="Business\ConsoleOperator.cs" />
+    <Compile Include="Business\ProcessOperator.cs" />
+    <Compile Include="Command\ConsoleActionCommand.cs" />
+    <Compile Include="ConfigEntity\BreakpointConfigEntity.cs" />
+    <Compile Include="ConfigEntity\ConsoleConfigEntity.cs" />
     <Compile Include="Models\BreakpointModel.cs" />
     <Compile Include="Models\ConsoleModel.cs" />
+    <Compile Include="Models\ModelBase.cs" />
     <Compile Include="Resources\UI.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>UI.resx</DependentUpon>
     </Compile>
-    <Compile Include="ViewModels\BreakpointViewModel.cs" />
     <Compile Include="Views\Breakpoint.xaml.cs">
       <DependentUpon>Breakpoint.xaml</DependentUpon>
     </Compile>
@@ -146,10 +149,13 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <Content Include="ConfigFile\BreakpointConfig.xml">
+    <Content Include="config\BreakpointConfig.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Resource Include="ConfigFile\ConsoleConfig.xml" />
+    <Content Include="config\ConsoleConfig.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </Content>
     <Resource Include="Images\console.png" />
     <Resource Include="Images\taskmgr.png" />
     <Resource Include="Images\breakpoint.png" />

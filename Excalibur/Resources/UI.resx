@@ -123,4 +123,13 @@
   <data name="Breakpoint_FileName" xml:space="preserve">
     <value>File Name</value>
   </data>
+  <data name="Console_ClearButtonTitle" xml:space="preserve">
+    <value>Clear</value>
+  </data>
+  <data name="Console_StartButtonTitle" xml:space="preserve">
+    <value>Start</value>
+  </data>
+  <data name="Console_StopButtonTitle" xml:space="preserve">
+    <value>Stop</value>
+  </data>
 </root>

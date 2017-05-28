@@ -5,6 +5,9 @@ using Utility.Logging;
 
 namespace Tools.Business
 {
+    /// <summary>
+    /// 加载内容控件到内容区域
+    /// </summary>
     class ContentPanelUtility
     {
         static Logger mLogger = new Logger(MethodBase.GetCurrentMethod().DeclaringType);

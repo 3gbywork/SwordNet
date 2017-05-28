@@ -30,7 +30,7 @@ namespace Excalibur.Config
             var nodes = xmlElement.SelectNodes("Breakpoint");
             foreach (XmlElement node in nodes)
             {
-                filename = node.GetAttribute("filename").Replace(@"//", @"/");
+                filename = node.GetAttribute("filename").Replace(@"//", @"/").Trim();
                 if (!string.IsNullOrEmpty(filename) && names.Add(filename))
                 {
                     BreakpointModel point = new BreakpointModel()

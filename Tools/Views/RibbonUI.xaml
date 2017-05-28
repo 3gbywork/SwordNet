@@ -20,7 +20,7 @@
             <fluent:Ribbon.Menu>
                 <fluent:Backstage>
                     <fluent:BackstageTabControl>
-                        <fluent:BackstageTabItem Header="{Binding RibbonUI_Quit}"/>
+                        <fluent:Button Header="{Binding RibbonUI_Quit}" Command="{Binding QuitCommand}"/>
                     </fluent:BackstageTabControl>
                 </fluent:Backstage>
             </fluent:Ribbon.Menu>

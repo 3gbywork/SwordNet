@@ -5,6 +5,9 @@ using Utility.Logging;
 
 namespace Excalibur.Business
 {
+    /// <summary>
+    /// 创建与删除断点文件
+    /// </summary>
     class BreakpointOperator
     {
         static Logger mLogger = new Logger(MethodBase.GetCurrentMethod().DeclaringType);

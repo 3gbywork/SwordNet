@@ -43,7 +43,7 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="User32\Constants.cs" />
-    <Compile Include="User32\Functions.cs" />
+    <Compile Include="User32\NativeMethods.cs" />
     <Compile Include="User32\InputConstants.cs" />
     <Compile Include="User32\InputTypes.cs" />
     <Compile Include="User32\Types.cs" />

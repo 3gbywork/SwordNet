@@ -4,7 +4,7 @@ using System.Text;
 
 namespace WinApi.Net.User32
 {
-    public static class Functions
+    public static class NativeMethods
     {
         public const string LibraryName = "user32";
 

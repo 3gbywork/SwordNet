@@ -20,7 +20,6 @@ namespace Excalibur.Views
     /// </summary>
     public partial class Breakpoint : UserControl, IDisposable
     {
-        BreakpointConfigEntity mConfigEntity;
         FileSystemWatcher mWatcher;
         ObservableCollection<BreakpointModel> mBreaks;
         static Logger mLogger = new Logger(MethodBase.GetCurrentMethod().DeclaringType);
@@ -34,9 +33,9 @@ namespace Excalibur.Views
             FileName.Header = UI.Breakpoint_FileName;
             Description.Header = UI.Breakpoint_Description;
 
-            mConfigEntity = new BreakpointConfigEntity();
-            mConfigEntity.OnConfigChanged += OnConfigChanged;
-            XmlConfigurator.ConfigAndWatch(mConfigEntity, new FileInfo("ConfigFile/BreakpointConfig.xml"));
+            var entity = new BreakpointConfigEntity();
+            entity.OnConfigChanged += OnConfigChanged;
+            XmlConfigurator.ConfigAndWatch(entity, new FileInfo("config/BreakpointConfig.xml"));
 
             mWatcher = new FileSystemWatcher()
             {
