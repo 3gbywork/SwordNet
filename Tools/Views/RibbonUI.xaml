@@ -41,23 +41,16 @@
         <ContentControl Grid.Row="1"  prism:RegionManager.RegionName="{Binding CenterRegion}" />
 
         <fluent:StatusBar Grid.Row="2" >
-            <fluent:StatusBarItem Title="Left placed item"
-                                  Value="150" 
+            <fluent:StatusBarItem Title="{Binding RibbonUI_Saying}"
+                                  Value="{Binding Saying}" 
                                   HorizontalAlignment="Left">
-                <TextBlock Text="150px"/>
             </fluent:StatusBarItem>
 
             <Separator HorizontalAlignment="Left"/>
 
-            <fluent:StatusBarItem Title="Second left placed item"
-                                  Value="Value shown in ContextMenu"
-                                  ToolTip="Your ToolTip"
-                                  Content="Content shown in StatusBar"
-                                  HorizontalAlignment="Left"/>
-
-            <fluent:StatusBarItem Title="Item placed on the right side"
-                                  HorizontalAlignment="Right"
-                                  Value="Your value which is also used as content if no content set."/>
+            <fluent:StatusBarItem Title="{Binding RibbonUI_UsedMemory}"
+                                  Value="{Binding UsedMemory, StringFormat={}{0:##\,000} KB}"
+                                  HorizontalAlignment="Right"/>
         </fluent:StatusBar>
 
     </Grid>

@@ -123,6 +123,12 @@
   <data name="RibbonUI_Quit" xml:space="preserve">
     <value>Exit</value>
   </data>
+  <data name="RibbonUI_Saying" xml:space="preserve">
+    <value>Saying</value>
+  </data>
+  <data name="RibbonUI_UsedMemory" xml:space="preserve">
+    <value>Used memory</value>
+  </data>
   <data name="RibbonUI_Views" xml:space="preserve">
     <value>Views</value>
   </data>

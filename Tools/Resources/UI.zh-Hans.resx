@@ -123,6 +123,12 @@
   <data name="RibbonUI_Quit" xml:space="preserve">
     <value>退出</value>
   </data>
+  <data name="RibbonUI_Saying" xml:space="preserve">
+    <value>谚语</value>
+  </data>
+  <data name="RibbonUI_UsedMemory" xml:space="preserve">
+    <value>内存占用</value>
+  </data>
   <data name="RibbonUI_Views" xml:space="preserve">
     <value>视图</value>
   </data>

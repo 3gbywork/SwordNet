@@ -79,6 +79,24 @@ namespace Tools.Resources {
         }
         
         /// <summary>
+        ///   查找类似 Saying 的本地化字符串。
+        /// </summary>
+        internal static string RibbonUI_Saying {
+            get {
+                return ResourceManager.GetString("RibbonUI_Saying", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Used memory 的本地化字符串。
+        /// </summary>
+        internal static string RibbonUI_UsedMemory {
+            get {
+                return ResourceManager.GetString("RibbonUI_UsedMemory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Views 的本地化字符串。
         /// </summary>
         internal static string RibbonUI_Views {
