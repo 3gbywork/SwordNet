@@ -88,6 +88,15 @@ namespace Excalibur.Resources {
         }
         
         /// <summary>
+        ///   查找类似 Please run the program with administrator privileges 的本地化字符串。
+        /// </summary>
+        public static string Console_RunAsAdminError {
+            get {
+                return ResourceManager.GetString("Console_RunAsAdminError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Start 的本地化字符串。
         /// </summary>
         public static string Console_StartButtonTitle {

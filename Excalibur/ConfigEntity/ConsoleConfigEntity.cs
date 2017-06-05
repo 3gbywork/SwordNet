@@ -1,14 +1,15 @@
-﻿using System.Collections.Generic;
-using System.Collections.ObjectModel;
+﻿using Excalibur.Models;
+using System.Collections.Generic;
+using System.IO;
 using System.Xml;
-using Excalibur.Models;
+using System.Xml.Serialization;
 using Utility.Config;
 
 namespace Excalibur.Config
 {
     class ConsoleConfigEntity : IXmlConfig
     {
-        public delegate void ConfigChangedHandler(ObservableCollection<ConsoleModel> consoles);
+        public delegate void ConfigChangedHandler(ICollection<ConsoleModel> consoles);
         public event ConfigChangedHandler OnConfigChanged;
 
         public void Config(XmlElement xmlElement)
@@ -20,27 +21,19 @@ namespace Excalibur.Config
             }
         }
 
-        private ObservableCollection<ConsoleModel> GetConfigFromXml(XmlElement xmlElement)
+        private ICollection<ConsoleModel> GetConfigFromXml(XmlElement xmlElement)
         {
-            var result = new ObservableCollection<ConsoleModel>();
-            var paths = new HashSet<string>();
+            var result = new SortedSet<ConsoleModel>();
 
-            string path = string.Empty;
-
-            var nodes = xmlElement.SelectNodes("Agent");
-            foreach (XmlElement node in nodes)
+            XmlSerializer xmlSerializer = new XmlSerializer(typeof(Agents));
+            using (StringReader stringReader = new StringReader(xmlElement.OuterXml))
             {
-                path = node.GetAttribute("path").Replace(@"//", @"/").Trim();
-                if (!string.IsNullOrEmpty(path) && paths.Add(path))
+                if (xmlSerializer.Deserialize(stringReader) is Agents agents)
                 {
-                    ConsoleModel consoleModel = new ConsoleModel
+                    foreach (var agent in agents.Agent)
                     {
-                        Path = path,
-                        Alias = node.GetAttribute("alias"),
-                        Name = node.GetAttribute("name"),
-                        Param = node.GetAttribute("param")
-                    };
-                    result.Add(consoleModel);
+                        result.Add(new ConsoleModel(agent));
+                    }
                 }
             }
 

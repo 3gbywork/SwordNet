@@ -12,6 +12,7 @@ using MahApps.Metro.Controls;
 using Utility.Config;
 using Utility.Logging;
 using Operator = Excalibur.Business.BreakpointOperator;
+using System.Collections.Generic;
 
 namespace Excalibur.Views
 {
@@ -71,11 +72,15 @@ namespace Excalibur.Views
             }
         }
 
-        private void OnConfigChanged(ObservableCollection<BreakpointModel> breaks)
+        private void OnConfigChanged(ICollection<BreakpointModel> breaks)
         {
-            mBreaks = breaks;
+            if (breaks == null)
+            {
+                return;
+            }
 
-            foreach (var point in mBreaks)
+            mBreaks.Clear();
+            foreach (var point in breaks)
             {
                 try
                 {
@@ -87,6 +92,10 @@ namespace Excalibur.Views
                 catch (Exception ex)
                 {
                     mLogger.Warn($"Error while checking file or directory exists, due to:{ex}");
+                }
+                finally
+                {
+                    mBreaks.Add(point);
                 }
             }
 

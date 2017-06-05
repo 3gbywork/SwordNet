@@ -1,32 +1,43 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<Configuration>
-	<ContentPanelViews>
-		<!-- name: display name -->
-		<ContentPanelView name="AvalonDock"
-						  icon="Images/dock_blue.png"
-						  assembly="Tools, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"
-						  type="Tools.ContentPanel.AvalonDock" />
-		<ContentPanelView name="TabControl"
-						  icon="Images/tab_blue.png"
-						  assembly="Tools, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"
-						  type="Tools.ContentPanel.TabControl" />
-		<ContentPanelView />
+<Configuration xmlns="http://3gbywork.github.io/schema/ToolsConfig.xsd">
+  <ContentPanelViews>
+    <!-- name: display name -->
+    <ContentPanelView Name="AvalonDock"
+						  Icon="Images/dock_blue.png"
+						  Assembly="Tools, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"
+						  Type="Tools.ContentPanel.AvalonDock" />
+    <ContentPanelView Name="TabControl"
+						  Icon="Images/tab_blue.png"
+						  Assembly="Tools, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"
+						  Type="Tools.ContentPanel.TabControl" />
+    <ContentPanelView Name="TabControl"
+						  Icon="Images/tab_blue.png"
+						  Assembly="Tools, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"
+						  Type="Tools.ContentPanel.TabControl" />
+  </ContentPanelViews>
 
-	</ContentPanelViews>
+  <Modules>
+    <Module Name="Breakpoint"
+				Icon="Images/breakpoint.png"
+				Assembly="Excalibur, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"
+				Type="Excalibur.Views.Breakpoint"/>
+    <Module Name="Taskmgr"
+				Icon="Images/taskmgr.png"
+				Assembly="Excalibur, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"
+				Type="Excalibur.Views.TaskManager"/>
+    <Module Name="Console"
+				Icon="Images/console.png"
+				Assembly="Excalibur, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"
+				Type="Excalibur.Views.Console"/>
+    <Module Name="Console"
+				Icon="Images/console.png"
+				Assembly="Excalibur, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"
+				Type="Excalibur.Views.Console"/>
+  </Modules>
 
-	<Modules>
-		<Module name="Breakpoint"
-				icon="Images/breakpoint.png"
-				assembly="Excalibur, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"
-				type="Excalibur.Views.Breakpoint"/>
-		<Module name="Taskmgr"
-				icon="Images/taskmgr.png"
-				assembly="Excalibur, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"
-				type="Excalibur.Views.TaskManager"/>
-		<Module name="Console"
-				icon="Images/console.png"
-				assembly="Excalibur, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"
-				type="Excalibur.Views.Console"/>
-
-	</Modules>
+  <Saying Url="http://so.gushiwen.org/mingju/Default.aspx" Param="?p={0}"
+          XPath="//div[@class='left']/div[@class='sons']/div[@class='cont']"
+          TotleItems="5668">
+    <CacheDB ConnectionString="Data Source=saying.db"/>
+  </Saying>
 </Configuration>

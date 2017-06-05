@@ -159,8 +159,10 @@ namespace Utility.Config
                     DtdProcessing = DtdProcessing.Parse,
                 };
 
-                XmlReader xmlReader = XmlReader.Create(fileStream, settings);
-                xmlDoc.Load(xmlReader);
+                using (XmlReader xmlReader = XmlReader.Create(fileStream, settings))
+                {
+                    xmlDoc.Load(xmlReader);
+                }
             }
             catch (Exception ex)
             {

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<Agents>
-	<Agent alias="rep" name="replicator" path="E:\OneDrive\OneDrive - abc\apli\NTM-767\MultiThreadingDemo\TicketDemo\bin\Debug\TicketDemo.exe" param=""/>
-	<Agent alias="cm" name="content manager" path="E:\OneDrive\OneDrive - abc\apli\NTM-767\MultiThreadingDemo\StoreHouseDemo\bin\Debug\StoreHouseDemo.exe" param=""/>
+<Agents xmlns="http://3gbywork.github.io/schema/ConsoleConfig.xsd">
+	<Agent Alias="rep" Name="replicator" Path="E:\OneDrive\OneDrive - abc\apli\NTM-767\MultiThreadingDemo\TicketDemo\bin\Debug\TicketDemo.exe" Param=""/>
+	<Agent Alias="cm" Name="content manager" Path="E:\OneDrive\OneDrive - abc\apli\NTM-767\MultiThreadingDemo\StoreHouseDemo\bin\Debug\StoreHouseDemo.exe" Param=""/>
 </Agents>

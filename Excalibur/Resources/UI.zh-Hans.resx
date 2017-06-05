@@ -126,6 +126,9 @@
   <data name="Console_ClearButtonTitle" xml:space="preserve">
     <value>清除</value>
   </data>
+  <data name="Console_RunAsAdminError" xml:space="preserve">
+    <value>请以管理员权限运行程序</value>
+  </data>
   <data name="Console_StartButtonTitle" xml:space="preserve">
     <value>开始</value>
   </data>

@@ -1,29 +1,31 @@
 ﻿using System;
+using System.Xml.Serialization;
 
 namespace Tools.Models
 {
-    public class RibbonButtonBaseInfo : IRibbonButtonInfo
+    [Serializable]
+    public abstract class RibbonButtonBaseInfo : IRibbonButtonInfo
     {
-        public string Name { get; set; }
-        public string Icon { get; set; }
-        public string Type { get; set; }
-        public string Assembly { get; set; }
+        [XmlAttribute]
+        public virtual string Name { get; set; }
+        [XmlAttribute]
+        public virtual string Icon { get; set; }
+        [XmlAttribute]
+        public virtual string Type { get; set; }
+        [XmlAttribute]
+        public virtual string Assembly { get; set; }
 
         public int CompareTo(object obj)
         {
-            var info = obj as RibbonButtonBaseInfo;
-            if (info == null)
+            if (obj is IRibbonButtonInfo info)
             {
-                return 0;
-            }
-            else
-            {
-                if (this.Assembly.Equals(info.Assembly))
+                if (Assembly.Equals(info.Assembly))
                 {
-                    return this.Type.CompareTo(info.Type);
+                    return Type.CompareTo(info.Type);
                 }
-                return this.Assembly.CompareTo(info.Assembly);
+                return Assembly.CompareTo(info.Assembly);
             }
+            return 0;
         }
     }
 }

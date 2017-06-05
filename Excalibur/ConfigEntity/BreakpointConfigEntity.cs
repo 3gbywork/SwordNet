@@ -1,14 +1,15 @@
-﻿using System.Collections.Generic;
-using System.Collections.ObjectModel;
+﻿using Excalibur.Models;
+using System.Collections.Generic;
+using System.IO;
 using System.Xml;
-using Excalibur.Models;
+using System.Xml.Serialization;
 using Utility.Config;
 
 namespace Excalibur.Config
 {
     class BreakpointConfigEntity : IXmlConfig
     {
-        public delegate void ConfigChangedHandler(ObservableCollection<BreakpointModel> breaks);
+        public delegate void ConfigChangedHandler(ICollection<BreakpointModel> breaks);
         public event ConfigChangedHandler OnConfigChanged;
 
         public void Config(XmlElement xmlElement)
@@ -20,29 +21,21 @@ namespace Excalibur.Config
             }
         }
 
-        private ObservableCollection<BreakpointModel> GetConfigFromXml(XmlElement xmlElement)
+        private ICollection<BreakpointModel> GetConfigFromXml(XmlElement xmlElement)
         {
-            var result = new ObservableCollection<BreakpointModel>();
-            var names = new HashSet<string>();
+            var result = new SortedSet<BreakpointModel>();
 
-            string filename = string.Empty;
-
-            var nodes = xmlElement.SelectNodes("Breakpoint");
-            foreach (XmlElement node in nodes)
+            XmlSerializer xmlSerializer = new XmlSerializer(typeof(Breakpoints));
+            using (StringReader stringReader = new StringReader(xmlElement.OuterXml))
             {
-                filename = node.GetAttribute("filename").Replace(@"//", @"/").Trim();
-                if (!string.IsNullOrEmpty(filename) && names.Add(filename))
+                if (xmlSerializer.Deserialize(stringReader) is Breakpoints breakpoint)
                 {
-                    BreakpointModel point = new BreakpointModel()
+                    foreach (var bpoint in breakpoint.Breakpoint)
                     {
-                        FileName = filename,
-                        Description = node.GetAttribute("description"),
-                        IsChecked = false,
-                    };
-                    result.Add(point);
+                        result.Add(new BreakpointModel(bpoint));
+                    }
                 }
             }
-
             return result;
         }
     }

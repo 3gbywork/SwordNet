@@ -9,6 +9,7 @@ using Tools.Business;
 using Tools.Logging;
 using Tools.ViewModels;
 using Tools.Views;
+using Tools.Saying;
 
 namespace Tools
 {
@@ -44,6 +45,7 @@ namespace Tools
         public void Dispose()
         {
             RibbonButtonUtility.Dispose();
+            SayingManager.UpdateSayingsIndex();
         }
 
         //protected override RegionAdapterMappings ConfigureRegionAdapterMappings()

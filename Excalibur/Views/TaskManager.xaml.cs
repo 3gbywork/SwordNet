@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Excalibur.Resources;
+using System;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.Reflection;
 using System.Windows;
@@ -152,7 +154,14 @@ namespace Excalibur.Views
             catch (Exception ex)
             {
                 mLogger.Error($"Error while getting taskmgr process, due to:{ex}");
-                result = null;
+                if (ex is Win32Exception win32ex)
+                {
+                    if (win32ex.NativeErrorCode.Equals(740))
+                    {
+                        MessageBox.Show(UI.Console_RunAsAdminError, win32ex.Message, MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                }
+                throw;
             }
 
             return result;

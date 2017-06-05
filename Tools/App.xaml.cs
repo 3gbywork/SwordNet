@@ -3,6 +3,7 @@ using System.Globalization;
 using System.Reflection;
 using System.Threading;
 using System.Windows;
+using Tools.Saying;
 using Utility.Config;
 using Utility.Logging;
 
@@ -17,11 +18,17 @@ namespace Tools
         static Bootstrapper strapper;
         public App()
         {
+            //new DataReader().Load();
             var culture = new CultureInfo(Configurator.GetConfiguration("Language", "zh-Hans"));
             Thread.CurrentThread.CurrentCulture = culture;
             Thread.CurrentThread.CurrentUICulture = culture;
 
             Tools.Resources.UI.Culture = culture;
+
+            AppDomain.CurrentDomain.UnhandledException += (sender, e) =>
+              {
+                  strapper?.Dispose();
+              };
         }
 
         protected override void OnStartup(StartupEventArgs e)
@@ -47,7 +54,7 @@ namespace Tools
 
             try
             {
-                strapper.Dispose();
+                strapper?.Dispose();
             }
             catch (Exception ex)
             {

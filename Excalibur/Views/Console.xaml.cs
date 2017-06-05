@@ -37,8 +37,13 @@ namespace Excalibur.Views
             XmlConfigurator.ConfigAndWatch(entity, new FileInfo("config/ConsoleConfig.xml"));
         }
 
-        private void OnConfigChanged(ObservableCollection<ConsoleModel> consoles)
+        private void OnConfigChanged(ICollection<ConsoleModel> consoles)
         {
+            if (consoles == null)
+            {
+                return;
+            }
+
             DispatcherAction(MenuItemCollection.Clear);
             foreach (var console in consoles)
             {
@@ -124,6 +129,8 @@ namespace Excalibur.Views
             {
                 console.Value?.Dispose();
             }
+            mConsoles.Clear();
+            mConsoles = null;
         }
     }
 }

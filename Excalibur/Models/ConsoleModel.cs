@@ -4,12 +4,32 @@ using System.Windows.Input;
 
 namespace Excalibur.Models
 {
-    public class ConsoleModel
+    public class ConsoleModel : IComparable
     {
+        private AgentsAgent agent;
+
+        public ConsoleModel(AgentsAgent agent)
+        {
+            this.agent = agent;
+            Alias = agent.Alias;
+            Name = agent.Name;
+            Param = agent.Param;
+            Path = agent.Path.Replace(@"//", @"/").Trim();
+        }
+
         public string Alias { get; set; }
         public string Name { get; set; }
         public string Path { get; set; }
         public string Param { get; set; }
+
+        public int CompareTo(object obj)
+        {
+            if (obj is ConsoleModel model)
+            {
+                return Path.CompareTo(model.Path);
+            }
+            return 0;
+        }
     }
 
     public class HamburgerMenuModel : ModelBase
