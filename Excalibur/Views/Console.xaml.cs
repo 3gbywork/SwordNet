@@ -1,15 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.IO;
-using System.Windows.Controls;
-using System.Windows.Input;
-using Excalibur.Business;
+﻿using Excalibur.Business;
 using Excalibur.Command;
 using Excalibur.Config;
 using Excalibur.Models;
 using Excalibur.Resources;
 using MahApps.Metro.Controls;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Threading;
+using System.Windows.Controls;
+using System.Windows.Input;
 using Utility.Config;
 
 namespace Excalibur.Views
@@ -24,6 +24,8 @@ namespace Excalibur.Views
 
         public Console()
         {
+            UI.Culture = Thread.CurrentThread.CurrentUICulture;
+
             InitializeComponent();
 
             mHamburgerMenuModel.StartButtonTitle = UI.Console_StartButtonTitle;

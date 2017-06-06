@@ -22,7 +22,7 @@ namespace Excalibur.Views
     public partial class Breakpoint : UserControl, IDisposable
     {
         FileSystemWatcher mWatcher;
-        ObservableCollection<BreakpointModel> mBreaks;
+        ObservableCollection<BreakpointModel> mBreaks = new ObservableCollection<BreakpointModel>();
         static Logger mLogger = new Logger(MethodBase.GetCurrentMethod().DeclaringType);
 
         public Breakpoint()

@@ -3,6 +3,7 @@ using System;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Reflection;
+using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Interop;
@@ -23,9 +24,9 @@ namespace Excalibur.Views
 
         public TaskManager()
         {
-            InitializeComponent();
+            UI.Culture = Thread.CurrentThread.CurrentUICulture;
 
-            mProcess = GetTaskManagerProcess();
+            InitializeComponent();
 
             Panel.Loaded += OnPanelLoaded;
             Panel.SizeChanged += OnPanelSizeChanged;
@@ -43,6 +44,10 @@ namespace Excalibur.Views
                     hwnd.AddHook(WndProc);
                     try
                     {
+                        if (mProcess == null)
+                        {
+                            mProcess = GetTaskManagerProcess();
+                        }
                         if (mProcess != null && mProcess.MainWindowHandle != IntPtr.Zero)
                         {
                             NativeMethods.SetWindowLongPtr(mProcess.MainWindowHandle, (int)WindowLongFlags.GWL_STYLE, (IntPtr)WindowStyles.WS_VISIBLE);
@@ -146,10 +151,18 @@ namespace Excalibur.Views
                         FileName = @"C:\Windows\System32\Taskmgr.exe",
                         WindowStyle = ProcessWindowStyle.Minimized,
                         UseShellExecute = false,
-                        Verb = "runas",
+                        //Verb = "runas",
                     }
                 };
                 result.Start();
+
+                // 等待窗口加载完成
+                int retryCount = 50;
+                while (result != null && result.MainWindowHandle == IntPtr.Zero)
+                {
+                    result.WaitForInputIdle(100);
+                    retryCount--;
+                }
             }
             catch (Exception ex)
             {
