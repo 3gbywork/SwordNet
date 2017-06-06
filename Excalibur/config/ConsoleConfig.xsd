@@ -3,7 +3,7 @@
   <xs:element name="Agents">
     <xs:complexType>
       <xs:sequence>
-        <xs:element maxOccurs="unbounded" name="Agent">
+        <xs:element minOccurs="0" maxOccurs="unbounded" name="Agent">
           <xs:complexType>
             <xs:attribute name="Alias" type="xs:string" use="required" />
             <xs:attribute name="Name" type="xs:string" use="required" />

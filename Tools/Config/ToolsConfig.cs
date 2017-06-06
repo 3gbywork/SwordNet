@@ -25,13 +25,19 @@ namespace Tools.Config
                 var xmlSerializer = new XmlSerializer(typeof(Configuration));
                 if (xmlSerializer.Deserialize(stream) is Configuration config)
                 {
-                    foreach (var view in config.ContentPanelViews)
+                    if (config.ContentPanelViews != null)
                     {
-                        Views.Add(new ViewInfo(view));
+                        foreach (var view in config.ContentPanelViews)
+                        {
+                            Views.Add(new ViewInfo(view));
+                        }
                     }
-                    foreach (var module in config.Modules)
+                    if (config.Modules != null)
                     {
-                        Modules.Add(new ModuleInfo(module));
+                        foreach (var module in config.Modules)
+                        {
+                            Modules.Add(new ModuleInfo(module));
+                        }
                     }
                     Saying = config.Saying;
                 }

@@ -30,9 +30,12 @@ namespace Excalibur.Config
             {
                 if (xmlSerializer.Deserialize(stringReader) is Agents agents)
                 {
-                    foreach (var agent in agents.Agent)
+                    if (agents.Agent != null)
                     {
-                        result.Add(new ConsoleModel(agent));
+                        foreach (var agent in agents.Agent)
+                        {
+                            result.Add(new ConsoleModel(agent));
+                        }
                     }
                 }
             }

@@ -30,9 +30,12 @@ namespace Excalibur.Config
             {
                 if (xmlSerializer.Deserialize(stringReader) is Breakpoints breakpoint)
                 {
-                    foreach (var bpoint in breakpoint.Breakpoint)
+                    if (breakpoint.Breakpoint != null)
                     {
-                        result.Add(new BreakpointModel(bpoint));
+                        foreach (var bpoint in breakpoint.Breakpoint)
+                        {
+                            result.Add(new BreakpointModel(bpoint));
+                        }
                     }
                 }
             }

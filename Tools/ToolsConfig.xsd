@@ -6,7 +6,7 @@
         <xs:element name="ContentPanelViews">
           <xs:complexType>
             <xs:sequence>
-              <xs:element maxOccurs="unbounded" name="ContentPanelView">
+              <xs:element minOccurs="0" maxOccurs="unbounded" name="ContentPanelView">
                 <xs:complexType>
                   <xs:attribute name="Name" type="xs:string" use="required" />
                   <xs:attribute name="Icon" type="xs:string" use="required" />
@@ -20,7 +20,7 @@
         <xs:element name="Modules">
           <xs:complexType>
             <xs:sequence>
-              <xs:element maxOccurs="unbounded" name="Module">
+              <xs:element minOccurs="0" maxOccurs="unbounded" name="Module">
                 <xs:complexType>
                   <xs:attribute name="Name" type="xs:string" use="required" />
                   <xs:attribute name="Icon" type="xs:string" use="required" />

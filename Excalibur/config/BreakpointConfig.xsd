@@ -3,7 +3,7 @@
   <xs:element name="Breakpoints">
     <xs:complexType>
       <xs:sequence>
-        <xs:element maxOccurs="unbounded" name="Breakpoint">
+        <xs:element minOccurs="0" maxOccurs="unbounded" name="Breakpoint">
           <xs:complexType>
             <xs:attribute name="Filename" type="xs:string" use="required" />
             <xs:attribute name="Description" type="xs:string" use="required" />
