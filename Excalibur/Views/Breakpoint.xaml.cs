@@ -79,7 +79,7 @@ namespace Excalibur.Views
                 return;
             }
 
-            mBreaks.Clear();
+            DispatcherAction(mBreaks.Clear);
             foreach (var point in breaks)
             {
                 try
@@ -103,6 +103,11 @@ namespace Excalibur.Views
             {
                 DataGrid.ItemsSource = mBreaks;
             }));
+        }
+
+        private void DispatcherAction(Action action)
+        {
+            this.Dispatcher.Invoke(action);
         }
 
         private void PreCheckedChanged(object sender, System.Windows.Input.MouseButtonEventArgs e)
