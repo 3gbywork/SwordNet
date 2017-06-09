@@ -95,10 +95,6 @@ namespace Excalibur.Business
 
         internal void TryStop()
         {
-            if (HasContent)
-            {
-                TryClear();
-            }
             try
             {
                 if (mProcessOperator != null)
@@ -109,6 +105,11 @@ namespace Excalibur.Business
             catch (Exception ex)
             {
                 mLogger.Error($"Error while stoping process:{model?.Path}, due to:{ex}");
+            }
+            // 确保内容被清空
+            if (HasContent)
+            {
+                TryClear();
             }
         }
 

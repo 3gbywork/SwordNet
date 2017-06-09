@@ -135,14 +135,19 @@ namespace Excalibur.Business
                         {
                             mProcess.CancelErrorRead();
                         }
-                        if (!mProcess.HasExited && mProcess.CloseMainWindow())
+                        // 如果进程没有退出
+                        if (!mProcess.HasExited)
                         {
-                            var isExited = mProcess.WaitForExit(500);
-                            if (!isExited)
+                            bool hasExited = false;
+                            // 如果发送关闭消息成功，则在指定时间内等待程序退出
+                            if (mProcess.CloseMainWindow())
+                            {
+                                hasExited = mProcess.WaitForExit(500);
+                            }
+                            if (!hasExited)
                             {
                                 mProcess.Kill();
                             }
-
                         }
                     }
                 }
