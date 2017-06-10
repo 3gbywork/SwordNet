@@ -31,6 +31,8 @@ namespace Excalibur.Views
             Panel.Loaded += OnPanelLoaded;
             Panel.SizeChanged += OnPanelSizeChanged;
             Panel.IsVisibleChanged += OnPanelIsVisibleChanged;
+
+            Notice.Text = UI.Taskmgr_Notice;
         }
 
         private void OnPanelLoaded(object sender, RoutedEventArgs e)

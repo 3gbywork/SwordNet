@@ -11,7 +11,6 @@ namespace Excalibur.Models
         public ConsoleModel(AgentsAgent agent)
         {
             this.agent = agent;
-            Alias = agent.Alias;
             Name = agent.Name;
             Param = agent.Param;
             Path = agent.Path.Replace(@"//", @"/").Trim();
@@ -32,7 +31,7 @@ namespace Excalibur.Models
         }
     }
 
-    public class HamburgerMenuModel : ModelBase
+    public class MenuModel : ModelBase
     {
         private string title;
         public string Title
@@ -142,9 +141,9 @@ namespace Excalibur.Models
 
         public string Path { get; internal set; }
 
-        internal HamburgerMenuModel Clone()
+        internal MenuModel Clone()
         {
-            return new HamburgerMenuModel
+            return new MenuModel
             {
                 Title = this.Title,
                 Path = this.Path,

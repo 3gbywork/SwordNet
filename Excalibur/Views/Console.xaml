@@ -9,86 +9,60 @@
              d:DesignHeight="300" d:DesignWidth="300">
 
     <UserControl.Resources>
-        <DataTemplate x:Key="HamburgerMenuImageItem" DataType="{x:Type mahapps:HamburgerMenuItem}">
-            <Grid Height="48">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="48" />
-                    <ColumnDefinition />
-                </Grid.ColumnDefinitions>
-                <TextBlock Margin="12"
-                           HorizontalAlignment="Center"
-                           VerticalAlignment="Center"
-                           FontSize="16"
-                           Text="{Binding Glyph}" />
-                <TextBlock Grid.Column="1"
-                           VerticalAlignment="Center"
-                           FontSize="16"
-                           Text="{Binding Label}" />
-            </Grid>
-        </DataTemplate>
-        <Style TargetType="Button">
-            <Setter Property="Margin" Value="10"/>
-            <Setter Property="Padding" Value="5"/>
-            <Setter Property="HorizontalContentAlignment" Value="Center"/>
-            <Setter Property="VerticalContentAlignment" Value="Center"/>
-        </Style>
-        <!--这种方式设置Stack Panel的样式会导致Button的排版出现问题-->
-        <!--<Style TargetType="StackPanel">
-            <Setter Property="Orientation" Value="Horizontal"/>
-            <Setter Property="FlowDirection" Value="RightToLeft"/>
-            <Setter Property="HorizontalAlignment" Value="Right"/>
-        </Style>-->
+        <ResourceDictionary>
+            <Style TargetType="Border">
+                <Setter Property="BorderBrush" Value="Black"/>
+                <Setter Property="BorderThickness" Value="1"/>
+            </Style>
+            <Style TargetType="Button">
+                <Setter Property="Margin" Value="10"/>
+                <Setter Property="Padding" Value="5"/>
+                <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                <Setter Property="VerticalContentAlignment" Value="Center"/>
+            </Style>
+        </ResourceDictionary>
     </UserControl.Resources>
-    <Grid>
-        <mahapps:HamburgerMenu ItemTemplate="{StaticResource HamburgerMenuImageItem}"
-                               x:Name="Menu"
-                               PreviewKeyDown="Menu_PreviewKeyDown"
-                               ItemClick="Menu_ItemClick">
-            <mahapps:HamburgerMenu.ItemsSource>
-                <mahapps:HamburgerMenuItemCollection x:Name="MenuItemCollection"/>
-            </mahapps:HamburgerMenu.ItemsSource>
 
-            <mahapps:HamburgerMenu.ContentTemplate>
-                <DataTemplate>
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="48" />
-                            <RowDefinition />
-                        </Grid.RowDefinitions>
-                        <Border Grid.Row="0" Background="#7A7A7A">
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="*"/>
-                                    <ColumnDefinition Width="3*"/>
-                                </Grid.ColumnDefinitions>
-                                <TextBlock Grid.Column="0"
-                                           HorizontalAlignment="Center"
-                                           VerticalAlignment="Center"
-                                           FontSize="24"
-                                           Foreground="White"
-                                           Text="{Binding Title}"/>
-                                <StackPanel Grid.Column="1" Orientation="Horizontal"
-                                            FlowDirection="RightToLeft" HorizontalAlignment="Right">
-                                    <Button Content="{Binding ClearButtonTitle}" IsEnabled="{Binding ClearButtonState}" Command="{Binding ConsoleActionCommand}" CommandParameter="Clear"/>
-                                    <Button Content="{Binding StopButtonTitle}" IsEnabled="{Binding StopButtonState}" Command="{Binding ConsoleActionCommand}" CommandParameter="Stop"/>
-                                    <Button Content="{Binding StartButtonTitle}" IsEnabled="{Binding StartButtonState}" Command="{Binding ConsoleActionCommand}" CommandParameter="Start"/>
-                                </StackPanel>
-                            </Grid>
-                        </Border>
-                        <mahapps:TransitioningContentControl Grid.Row="1"
-                                                             Content="{Binding Content}"
-                                                             RestartTransitionOnContentChange="True"
-                                                             Transition="Default">
-                            <mahapps:TransitioningContentControl.ContentTemplate>
-                                <DataTemplate>
-                                    <ListBox ItemsSource="{Binding}"/>
-                                </DataTemplate>
-                            </mahapps:TransitioningContentControl.ContentTemplate>
-                        </mahapps:TransitioningContentControl>
-                    </Grid>
-                </DataTemplate>
-            </mahapps:HamburgerMenu.ContentTemplate>
-        </mahapps:HamburgerMenu>
+    <Grid x:Name="ConsoleGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="auto"/>
+        </Grid.ColumnDefinitions>
 
+        <Border Grid.Row="0" Grid.Column="0">
+            <Label Content="================"/>
+        </Border>
+        <Border Grid.Row="1" Grid.Column="0">
+            <ListBox x:Name="Menu" SelectionChanged="Menu_SelectionChanged"/>
+        </Border>
+        <Border Grid.Row="0" Grid.Column="1">
+            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center"
+                   FontSize="24" Text="{Binding Title}"/>
+        </Border>
+        <Border Grid.Row="0" Grid.Column="2">
+            <StackPanel Orientation="Horizontal" FlowDirection="RightToLeft"
+                    HorizontalAlignment="Right">
+                <Button Content="{Binding ClearButtonTitle}" 
+                    IsEnabled="{Binding ClearButtonState}"
+                    Command="{Binding ConsoleActionCommand}"
+                    CommandParameter="Clear"/>
+                <Button Content="{Binding StopButtonTitle}"
+                    IsEnabled="{Binding StopButtonState}"
+                    Command="{Binding ConsoleActionCommand}"
+                    CommandParameter="Stop"/>
+                <Button Content="{Binding StartButtonTitle}"
+                    IsEnabled="{Binding StartButtonState}"
+                    Command="{Binding ConsoleActionCommand}"
+                    CommandParameter="Start"/>
+            </StackPanel>
+        </Border>
+        <Border Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2">
+            <ListBox ItemsSource="{Binding Content}"/>
+        </Border>
     </Grid>
 </UserControl>

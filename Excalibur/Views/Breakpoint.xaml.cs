@@ -1,18 +1,19 @@
-﻿using System;
+﻿using Excalibur.Config;
+using Excalibur.Extensions;
+using Excalibur.Models;
+using Excalibur.Resources;
+using MahApps.Metro.Controls;
+using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Threading;
 using System.Windows.Controls;
-using Excalibur.Config;
-using Excalibur.Models;
-using Excalibur.Resources;
-using MahApps.Metro.Controls;
 using Utility.Config;
 using Utility.Logging;
 using Operator = Excalibur.Business.BreakpointOperator;
-using System.Collections.Generic;
 
 namespace Excalibur.Views
 {
@@ -79,7 +80,7 @@ namespace Excalibur.Views
                 return;
             }
 
-            DispatcherAction(mBreaks.Clear);
+            this.Dispatcher.InvokeAction(mBreaks.Clear);
             foreach (var point in breaks)
             {
                 try
@@ -95,7 +96,7 @@ namespace Excalibur.Views
                 }
                 finally
                 {
-                    mBreaks.Add(point);
+                    this.Dispatcher.InvokeAction(mBreaks.Add, point);
                 }
             }
 
@@ -103,11 +104,6 @@ namespace Excalibur.Views
             {
                 DataGrid.ItemsSource = mBreaks;
             }));
-        }
-
-        private void DispatcherAction(Action action)
-        {
-            this.Dispatcher.Invoke(action);
         }
 
         private void PreCheckedChanged(object sender, System.Windows.Input.MouseButtonEventArgs e)

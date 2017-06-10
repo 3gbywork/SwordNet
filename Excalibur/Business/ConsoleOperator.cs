@@ -16,18 +16,18 @@ namespace Excalibur.Business
 
         private ConsoleModel model;
         private Dispatcher dispatcher;
-        private HamburgerMenuModel hamburgerMenuModel;
+        private MenuModel menuModel;
         ProcessOperator mProcessOperator;
 
-        public ConsoleOperator(ConsoleModel model, HamburgerMenuModel hamburgerMenuModel, Dispatcher dispatcher)
+        public ConsoleOperator(ConsoleModel model, MenuModel menuModel, Dispatcher dispatcher)
         {
             this.model = model;
             this.dispatcher = dispatcher;
-            this.HamburgerMenuModel = hamburgerMenuModel;
+            this.MenuModel = menuModel;
 
-            this.HamburgerMenuModel.Title = model.Name;
-            this.HamburgerMenuModel.Path = model.Path;
-            this.HamburgerMenuModel.Content = Content;
+            this.MenuModel.Title = model.Name;
+            this.MenuModel.Path = model.Path;
+            this.MenuModel.Content = Content;
 
             this.mProcessOperator = new ProcessOperator(
                 ProcessOperator.GetProcessStartInfo(model.Path, model.Param, true));
@@ -54,8 +54,8 @@ namespace Excalibur.Business
                 if (!bool.Equals(isRunning, value))
                 {
                     isRunning = value;
-                    this.HamburgerMenuModel.StartButtonState = !value;
-                    this.HamburgerMenuModel.StopButtonState = value;
+                    this.MenuModel.StartButtonState = !value;
+                    this.MenuModel.StopButtonState = value;
                 }
             }
         }
@@ -69,14 +69,14 @@ namespace Excalibur.Business
                 if (!bool.Equals(hasContent, value))
                 {
                     hasContent = value;
-                    this.HamburgerMenuModel.ClearButtonState = value;
+                    this.MenuModel.ClearButtonState = value;
                 }
             }
         }
 
         public ObservableCollection<string> Content = new ObservableCollection<string>();
 
-        public HamburgerMenuModel HamburgerMenuModel { get => hamburgerMenuModel; private set => hamburgerMenuModel = value; }
+        public MenuModel MenuModel { get => menuModel; private set => menuModel = value; }
 
         internal void TryRun()
         {
@@ -115,7 +115,7 @@ namespace Excalibur.Business
 
         internal void TryClear()
         {
-            HamburgerMenuModel.Content.Clear();
+            MenuModel.Content.Clear();
             HasContent = false;
         }
 

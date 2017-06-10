@@ -3,13 +3,12 @@ using Excalibur.Command;
 using Excalibur.Config;
 using Excalibur.Models;
 using Excalibur.Resources;
-using MahApps.Metro.Controls;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Threading;
 using System.Windows.Controls;
-using System.Windows.Input;
 using Utility.Config;
 
 namespace Excalibur.Views
@@ -19,7 +18,7 @@ namespace Excalibur.Views
     /// </summary>
     public partial class Console : UserControl, IDisposable
     {
-        HamburgerMenuModel mHamburgerMenuModel = new HamburgerMenuModel();
+        MenuModel mMenuModel = new MenuModel();
         Dictionary<string, ConsoleOperator> mConsoles = new Dictionary<string, ConsoleOperator>();
 
         public Console()
@@ -28,11 +27,11 @@ namespace Excalibur.Views
 
             InitializeComponent();
 
-            mHamburgerMenuModel.StartButtonTitle = UI.Console_StartButtonTitle;
-            mHamburgerMenuModel.StopButtonTitle = UI.Console_StopButtonTitle;
-            mHamburgerMenuModel.ClearButtonTitle = UI.Console_ClearButtonTitle;
+            mMenuModel.StartButtonTitle = UI.Console_StartButtonTitle;
+            mMenuModel.StopButtonTitle = UI.Console_StopButtonTitle;
+            mMenuModel.ClearButtonTitle = UI.Console_ClearButtonTitle;
 
-            mHamburgerMenuModel.ConsoleActionCommand = new ConsoleActionCommand(ExecuteAction);
+            mMenuModel.ConsoleActionCommand = new ConsoleActionCommand(ExecuteAction);
 
             ConsoleConfigEntity entity = new ConsoleConfigEntity();
             entity.OnConfigChanged += OnConfigChanged;
@@ -46,59 +45,55 @@ namespace Excalibur.Views
                 return;
             }
 
-            DispatcherAction(MenuItemCollection.Clear);
-            foreach (var console in consoles)
-            {
-                var menuItem = new HamburgerMenuGlyphItem()
-                {
-                    Glyph = console.Alias,
-                    Label = console.Name,
-                    Tag = console,
-                };
-                DispatcherAction(MenuItemCollection.Add, menuItem);
-            }
-            if (MenuItemCollection.Count > 0 && Menu.SelectedIndex == -1)
-            {
-                Menu_ItemClick(null, new ItemClickEventArgs(MenuItemCollection[0]));
-            }
-        }
-
-        private void DispatcherAction(Action<HamburgerMenuItem> action, HamburgerMenuGlyphItem menuItem)
-        {
             this.Dispatcher.Invoke(new Action(() =>
             {
-                action(menuItem);
+                var collection = new ObservableCollection<ListBoxItem>();
+                foreach (var console in consoles)
+                {
+                    collection.Add(GetItem(console));
+                }
+                Menu.ItemsSource = collection;
+                if (collection.Count > 0 && Menu.SelectedIndex == -1)
+                {
+                    Menu.SelectedIndex = 0;
+                }
             }));
         }
 
-        private void DispatcherAction(Action action)
+        private ListBoxItem GetItem(ConsoleModel console)
         {
-            this.Dispatcher.Invoke(new Action(() =>
+            return new ListBoxItem()
             {
-                action();
-            }));
+                Content = console.Name,
+                Tag = console,
+            };
         }
 
-        private void Menu_ItemClick(object sender, ItemClickEventArgs e)
+        private void Menu_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (e.ClickedItem is HamburgerMenuGlyphItem item)
+            if (sender is ListBox listbox)
             {
-                if (item.Tag is ConsoleModel model)
+                if (listbox.SelectedItem is ListBoxItem item)
                 {
-                    if (!mConsoles.TryGetValue(model.Path, out ConsoleOperator console))
+                    if (item.Tag is ConsoleModel model)
                     {
-                        console = new ConsoleOperator(model, mHamburgerMenuModel.Clone(), this.Dispatcher);
-                        mConsoles[model.Path] = console;
+                        if (!mConsoles.TryGetValue(model.Path, out ConsoleOperator console))
+                        {
+                            console = new ConsoleOperator(model, mMenuModel.Clone(), this.Dispatcher);
+                            mConsoles[model.Path] = console;
+                        }
+                        this.Dispatcher.Invoke(new Action(() =>
+                        {
+                            ConsoleGrid.DataContext = console.MenuModel;
+                        }));
                     }
-
-                    Menu.Content = console.HamburgerMenuModel;
                 }
             }
         }
 
         private void ExecuteAction(object parameter)
         {
-            if (Menu.Content is HamburgerMenuModel model)
+            if (ConsoleGrid.DataContext is MenuModel model)
             {
                 if (mConsoles.TryGetValue(model.Path, out ConsoleOperator console))
                 {
@@ -118,11 +113,6 @@ namespace Excalibur.Views
                     }
                 }
             }
-        }
-
-        private void Menu_PreviewKeyDown(object sender, KeyEventArgs e)
-        {
-            e.Handled = true;
         }
 
         public void Dispose()

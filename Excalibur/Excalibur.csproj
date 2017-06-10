@@ -87,6 +87,7 @@
     <Compile Include="config\ConsoleConfig.cs">
       <DependentUpon>ConsoleConfig.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Extensions\DispatcherExtension.cs" />
     <Compile Include="Models\BreakpointModel.cs" />
     <Compile Include="Models\ConsoleModel.cs" />
     <Compile Include="Models\ModelBase.cs" />
@@ -130,9 +131,15 @@
     <None Include="config\BreakpointConfig.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="config\ConsoleConfig.xsc">
+      <DependentUpon>ConsoleConfig.xsd</DependentUpon>
+    </None>
     <None Include="config\ConsoleConfig.xsd">
       <SubType>Designer</SubType>
       <CustomToolNamespace>Excalibur.Config</CustomToolNamespace>
+    </None>
+    <None Include="config\ConsoleConfig.xss">
+      <DependentUpon>ConsoleConfig.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

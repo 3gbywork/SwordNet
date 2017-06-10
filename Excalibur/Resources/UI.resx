@@ -135,4 +135,7 @@
   <data name="Console_StopButtonTitle" xml:space="preserve">
     <value>Stop</value>
   </data>
+  <data name="Taskmgr_Notice" xml:space="preserve">
+    <value>TaskManager is not supported float mode, please dock it</value>
+  </data>
 </root>

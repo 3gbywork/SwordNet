@@ -135,4 +135,7 @@
   <data name="Console_StopButtonTitle" xml:space="preserve">
     <value>停止</value>
   </data>
+  <data name="Taskmgr_Notice" xml:space="preserve">
+    <value>任务管理器不支持浮动模式，请将其停靠在主窗口</value>
+  </data>
 </root>

@@ -45,7 +45,7 @@ namespace Tools.ContentPanel
                 Content = view,
                 CanClose = false,
                 //CanAutoHide = false,
-                CanFloat = false,
+                //CanFloat = false,
                 //CanHide = false,
             };
         }

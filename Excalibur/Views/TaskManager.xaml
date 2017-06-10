@@ -8,5 +8,6 @@
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid Margin="14">
         <Border x:Name="Panel"/>
+        <TextBlock x:Name="Notice" Text="TaskManager is not supported float mode, please dock it." FontSize="24" TextWrapping="WrapWithOverflow"/>
     </Grid>
 </UserControl>
