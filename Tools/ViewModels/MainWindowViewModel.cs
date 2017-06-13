@@ -5,9 +5,9 @@ using System.Timers;
 using System.Windows;
 using System.Windows.Input;
 using Tools.Commands;
+using Tools.Constants;
 using Tools.Saying;
 using Utility.Config;
-using Utility.Prism;
 
 namespace Tools.ViewModels
 {
@@ -54,8 +54,8 @@ namespace Tools.ViewModels
         public string Saying => SayingManager.GetNextSaying();
         public double UsedMemory => Process.GetCurrentProcess().PrivateMemorySize64 / 1024;
 
-        public string ContentRegion => RegionNameConstants.ContentRegion;
-        public string CenterRegion => RegionNameConstants.CenterRegion;
+        public string ContentRegion => PrismRegionNameConstant.ContentRegion;
+        public string CenterRegion => PrismRegionNameConstant.CenterRegion;
 
         private RelayCommand quitCommand;
         public ICommand QuitCommand

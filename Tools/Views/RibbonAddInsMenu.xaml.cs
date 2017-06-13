@@ -2,8 +2,6 @@
 using Tools.Business;
 using Tools.Commands;
 using Tools.Config;
-using Tools.Modules;
-using Utility.Prism;
 
 namespace Tools.Views
 {

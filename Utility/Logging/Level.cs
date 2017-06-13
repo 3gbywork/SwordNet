@@ -3,9 +3,9 @@
     public enum Level
     {
         Debug,
+        Warn,
+        Info,
         Error,
         Fatal,
-        Info,
-        Warn
     }
 }

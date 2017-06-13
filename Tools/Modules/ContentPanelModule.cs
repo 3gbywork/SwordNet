@@ -6,7 +6,7 @@ using Tools.Business;
 using Tools.Config;
 using Tools.Views;
 using Utility.Logging;
-using Utility.Prism;
+using Tools.Constants;
 
 namespace Tools.Modules
 {
@@ -22,10 +22,10 @@ namespace Tools.Modules
         }
         public void Initialize()
         {
-            RegionManager.RegisterViewWithRegion(RegionNameConstants.ContentRegion, typeof(RibbonUI));
+            RegionManager.RegisterViewWithRegion(PrismRegionNameConstant.ContentRegion, typeof(RibbonUI));
 
             var views = ToolsConfig.GetInstance().Views;
-            IRegion region = RegionManager.Regions[RegionNameConstants.CenterRegion];
+            IRegion region = RegionManager.Regions[PrismRegionNameConstant.CenterRegion];
             RibbonButtonUtility.AddToRegion(UnityContainer, region, views);
         }
     }

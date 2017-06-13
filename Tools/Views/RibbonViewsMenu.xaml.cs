@@ -2,8 +2,8 @@
 using Tools.Business;
 using Tools.Commands;
 using Tools.Config;
+using Tools.Constants;
 using Tools.Modules;
-using Utility.Prism;
 
 namespace Tools.Views
 {
@@ -17,7 +17,7 @@ namespace Tools.Views
             InitializeComponent();
 
             var views = ToolsConfig.GetInstance().Views;
-            var command = new ContentPanelCommand(ContentPanelModule.RegionManager, RegionNameConstants.CenterRegion);
+            var command = new ContentPanelCommand(ContentPanelModule.RegionManager, PrismRegionNameConstant.CenterRegion);
             ViewsContainer.ItemsSource = RibbonButtonUtility.GenerateRibbonButtons(command, views);
         }
     }

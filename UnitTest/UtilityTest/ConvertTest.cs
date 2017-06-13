@@ -1,7 +1,5 @@
-﻿using System.Security.Cryptography;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Utility.Convert;
-using Utility.Security;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Security.Cryptography;
 //using Xunit;
 
 namespace UtilityTest.CoreTest
