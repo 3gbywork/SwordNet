@@ -4,9 +4,9 @@ using System.Diagnostics;
 using System.Timers;
 using System.Windows;
 using System.Windows.Input;
-using Tools.Commands;
 using Tools.Constants;
 using Tools.Saying;
+using Utility.Command;
 using Utility.Config;
 
 namespace Tools.ViewModels
