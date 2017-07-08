@@ -1,11 +1,10 @@
-﻿using System;
+﻿using CommonUtility.Logging;
+using CommonUtility.Config;
+using System;
 using System.Globalization;
 using System.Reflection;
 using System.Threading;
 using System.Windows;
-using Tools.Saying;
-using Utility.Config;
-using Utility.Logging;
 
 namespace Tools
 {

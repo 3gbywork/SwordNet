@@ -1,11 +1,9 @@
 ﻿using System;
 using System.Collections;
-using System.Reflection;
 using System.Windows.Controls;
 using Tools.Business;
 using Tools.Models;
 using Tools.Modules;
-using Utility.Logging;
 using Xceed.Wpf.AvalonDock.Layout;
 
 namespace Tools.ContentPanel

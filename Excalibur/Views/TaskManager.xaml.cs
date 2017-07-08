@@ -1,4 +1,5 @@
-﻿using Excalibur.Resources;
+﻿using CommonUtility.Logging;
+using Excalibur.Resources;
 using System;
 using System.ComponentModel;
 using System.Diagnostics;
@@ -7,7 +8,6 @@ using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Interop;
-using Utility.Logging;
 using WinApi.Net.User32;
 
 namespace Excalibur.Views

@@ -1,4 +1,6 @@
-﻿using Prism.Mvvm;
+﻿using CommonUtility.Command;
+using CommonUtility.Config;
+using Prism.Mvvm;
 using System;
 using System.Diagnostics;
 using System.Timers;
@@ -6,8 +8,6 @@ using System.Windows;
 using System.Windows.Input;
 using Tools.Constants;
 using Tools.Saying;
-using Utility.Command;
-using Utility.Config;
 
 namespace Tools.ViewModels
 {

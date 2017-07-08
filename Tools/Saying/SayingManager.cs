@@ -1,8 +1,8 @@
-﻿using System;
+﻿using CommonUtility.Logging;
+using System;
 using System.Collections.Generic;
 using System.Reflection;
 using Tools.Config;
-using Utility.Logging;
 
 namespace Tools.Saying
 {

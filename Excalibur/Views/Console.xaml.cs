@@ -1,4 +1,5 @@
-﻿using Excalibur.Business;
+﻿using CommonUtility.Config;
+using Excalibur.Business;
 using Excalibur.Command;
 using Excalibur.Config;
 using Excalibur.Models;
@@ -9,7 +10,6 @@ using System.Collections.ObjectModel;
 using System.IO;
 using System.Threading;
 using System.Windows.Controls;
-using Utility.Config;
 
 namespace Excalibur.Views
 {

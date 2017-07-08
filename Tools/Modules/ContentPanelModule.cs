@@ -1,12 +1,12 @@
-﻿using System.Reflection;
+﻿using CommonUtility.Logging;
 using Microsoft.Practices.Unity;
 using Prism.Modularity;
 using Prism.Regions;
+using System.Reflection;
 using Tools.Business;
 using Tools.Config;
-using Tools.Views;
-using Utility.Logging;
 using Tools.Constants;
+using Tools.Views;
 
 namespace Tools.Modules
 {

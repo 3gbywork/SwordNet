@@ -1,8 +1,8 @@
-﻿using Prism.Regions;
+﻿using CommonUtility.Logging;
+using Prism.Regions;
 using System;
 using System.Reflection;
 using System.Windows.Input;
-using Utility.Logging;
 using Tools.Models;
 
 namespace Tools.Commands

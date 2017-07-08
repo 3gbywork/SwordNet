@@ -1,4 +1,6 @@
-﻿using Excalibur.Config;
+﻿using CommonUtility.Config;
+using CommonUtility.Logging;
+using Excalibur.Config;
 using Excalibur.Extensions;
 using Excalibur.Models;
 using Excalibur.Resources;
@@ -11,8 +13,6 @@ using System.Linq;
 using System.Reflection;
 using System.Threading;
 using System.Windows.Controls;
-using Utility.Config;
-using Utility.Logging;
 using Operator = Excalibur.Business.BreakpointOperator;
 
 namespace Excalibur.Views

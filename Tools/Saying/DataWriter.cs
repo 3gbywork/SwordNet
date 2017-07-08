@@ -1,10 +1,10 @@
-﻿using System;
+﻿using CommonUtility.Logging;
+using System;
 using System.Collections.Generic;
 using System.Data.SQLite;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
-using Utility.Logging;
 
 namespace Tools.Saying
 {

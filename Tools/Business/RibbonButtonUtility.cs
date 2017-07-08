@@ -1,14 +1,15 @@
-﻿using System;
+﻿using CommonUtility.Extension;
+using CommonUtility.Logging;
+using CommonUtility.Security;
+using Fluent;
+using Microsoft.Practices.Unity;
+using Prism.Regions;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
 using System.Windows.Input;
-using Fluent;
-using Microsoft.Practices.Unity;
-using Prism.Regions;
 using Tools.Models;
-using Utility.Logging;
-using Utility.Security;
 
 namespace Tools.Business
 {
@@ -112,7 +113,7 @@ namespace Tools.Business
                 return null;
             }
 
-            var viewId = Cryptograph.ComputeGuidHash($"{assemblyQualifiedName},{buttonInfo.Type}").ToString("B");
+            var viewId = $"{assemblyQualifiedName},{buttonInfo.Type}".ToGuid().ToString("B");
             if (views.TryGetValue(viewId, out object view))
             {
                 return view;

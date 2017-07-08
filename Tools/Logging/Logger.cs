@@ -1,6 +1,6 @@
 ﻿using Prism.Logging;
 using System.Reflection;
-using LoggerUtil = Utility.Logging.Logger;
+using LoggerUtil = CommonUtility.Logging.Logger;
 
 namespace Tools.Logging
 {

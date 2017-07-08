@@ -65,8 +65,8 @@
     <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CommonUtility, Version=1.0.0.2, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\net.3gbywork.CommonUtility.1.0.0.2\lib\net452\CommonUtility.dll</HintPath>
+    <Reference Include="CommonUtility, Version=1.0.0.4, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\net.3gbywork.CommonUtility.1.0.0.4\lib\net452\CommonUtility.dll</HintPath>
     </Reference>
     <Reference Include="ControlzEx, Version=2.2.0.4, Culture=neutral, PublicKeyToken=f08b075e934b7045, processorArchitecture=MSIL">
       <HintPath>..\packages\ControlzEx.2.2.0.4\lib\net45\ControlzEx.dll</HintPath>

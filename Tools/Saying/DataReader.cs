@@ -1,10 +1,10 @@
-﻿using HtmlAgilityPack;
+﻿using CommonUtility.Logging;
+using HtmlAgilityPack;
 using System;
 using System.Collections.Generic;
 using System.Data.SQLite;
 using System.Reflection;
 using System.Threading.Tasks;
-using Utility.Logging;
 
 namespace Tools.Saying
 {

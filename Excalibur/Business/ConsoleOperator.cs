@@ -1,9 +1,9 @@
-﻿using System;
+﻿using CommonUtility.Logging;
+using Excalibur.Models;
+using System;
 using System.Collections.ObjectModel;
 using System.Reflection;
 using System.Windows.Threading;
-using Excalibur.Models;
-using Utility.Logging;
 
 namespace Excalibur.Business
 {

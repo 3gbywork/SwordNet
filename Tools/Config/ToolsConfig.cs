@@ -1,10 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using CommonUtility.Lock;
+using CommonUtility.Logging;
+using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 using System.Xml.Serialization;
 using Tools.Models;
-using Utility.Lock;
-using Utility.Logging;
 
 namespace Tools.Config
 {
