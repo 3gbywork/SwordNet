@@ -1,6 +1,6 @@
-﻿using CommonUtility.Config;
+﻿using CommonUtility.Command;
+using CommonUtility.Config;
 using Excalibur.Business;
-using Excalibur.Command;
 using Excalibur.Config;
 using Excalibur.Models;
 using Excalibur.Resources;
@@ -31,7 +31,7 @@ namespace Excalibur.Views
             mMenuModel.StopButtonTitle = UI.Console_StopButtonTitle;
             mMenuModel.ClearButtonTitle = UI.Console_ClearButtonTitle;
 
-            mMenuModel.ConsoleActionCommand = new ConsoleActionCommand(ExecuteAction);
+            mMenuModel.ConsoleActionCommand = new RelayCommand<object>(ExecuteAction);
 
             ConsoleConfigEntity entity = new ConsoleConfigEntity();
             entity.OnConfigChanged += OnConfigChanged;

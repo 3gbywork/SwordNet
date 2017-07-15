@@ -85,7 +85,6 @@
     <Compile Include="Business\BreakpointOperator.cs" />
     <Compile Include="Business\ConsoleOperator.cs" />
     <Compile Include="Business\ProcessOperator.cs" />
-    <Compile Include="Command\ConsoleActionCommand.cs" />
     <Compile Include="ConfigEntity\BreakpointConfigEntity.cs" />
     <Compile Include="ConfigEntity\ConsoleConfigEntity.cs" />
     <Compile Include="config\BreakpointConfig.cs">

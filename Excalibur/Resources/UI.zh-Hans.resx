@@ -123,6 +123,9 @@
   <data name="Breakpoint_FileName" xml:space="preserve">
     <value>文件名</value>
   </data>
+  <data name="Breakpoint_Refresh" xml:space="preserve">
+    <value>刷新</value>
+  </data>
   <data name="Console_ClearButtonTitle" xml:space="preserve">
     <value>清除</value>
   </data>

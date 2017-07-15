@@ -1,4 +1,5 @@
-﻿using CommonUtility.Config;
+﻿using CommonUtility.Command;
+using CommonUtility.Config;
 using CommonUtility.Logging;
 using Excalibur.Config;
 using Excalibur.Extensions;
@@ -13,6 +14,7 @@ using System.Linq;
 using System.Reflection;
 using System.Threading;
 using System.Windows.Controls;
+using System.Windows.Input;
 using Operator = Excalibur.Business.BreakpointOperator;
 
 namespace Excalibur.Views
@@ -34,6 +36,8 @@ namespace Excalibur.Views
 
             FileName.Header = UI.Breakpoint_FileName;
             Description.Header = UI.Breakpoint_Description;
+            RefreshMenuItem.Header = UI.Breakpoint_Refresh;
+            RefreshMenuItem.Command = new RelayCommand<object>(ExecuteAction);
 
             var entity = new BreakpointConfigEntity();
             entity.OnConfigChanged += OnConfigChanged;
@@ -49,6 +53,39 @@ namespace Excalibur.Views
             mWatcher.Created += OnFileChanged;
             mWatcher.Deleted += OnFileChanged;
             mWatcher.Renamed += OnFileRenamed;
+        }
+
+        private void ExecuteAction(object parameter)
+        {
+            switch (parameter.ToString().ToLower())
+            {
+                case "refresh":
+                    CheckBreakpointStatus(mBreaks);
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        private void CheckBreakpointStatus(ObservableCollection<BreakpointModel> breaks)
+        {
+            if (breaks != null)
+            {
+                foreach (var point in breaks)
+                {
+                    try
+                    {
+                        if (File.Exists(point.FileName) || Directory.Exists(point.FileName))
+                        {
+                            point.IsChecked = true;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        mLogger.Warn($"Error while checking file or directory {point.FileName} exists, due to:{ex}");
+                    }
+                }
+            }
         }
 
         private void OnFileRenamed(object sender, RenamedEventArgs e)
@@ -92,7 +129,7 @@ namespace Excalibur.Views
                 }
                 catch (Exception ex)
                 {
-                    mLogger.Warn($"Error while checking file or directory exists, due to:{ex}");
+                    mLogger.Warn($"Error while checking file or directory {point.FileName} exists, due to:{ex}");
                 }
                 finally
                 {

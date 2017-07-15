@@ -123,6 +123,9 @@
   <data name="Breakpoint_FileName" xml:space="preserve">
     <value>File Name</value>
   </data>
+  <data name="Breakpoint_Refresh" xml:space="preserve">
+    <value>Refresh</value>
+  </data>
   <data name="Console_ClearButtonTitle" xml:space="preserve">
     <value>Clear</value>
   </data>
