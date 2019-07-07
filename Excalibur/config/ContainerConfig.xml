@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Apps xmlns="http://3gbywork.github.io/schema/ContainerConfig.xsd">
+  <App ID="taskmgr" ProcessName="taskmgr" FullName="C:/Windows/System32/Taskmgr.exe"/>
+</Apps>

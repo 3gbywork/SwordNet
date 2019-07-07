@@ -1,13 +1,19 @@
-﻿using CommonUtility.Logging;
+﻿using CommonUtility.Config;
+using CommonUtility.Logging;
+using Excalibur.Config;
+using Excalibur.Models;
 using Excalibur.Resources;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.IO;
 using System.Reflection;
 using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Interop;
+using TheSeed;
 using WinApi.Net.User32;
 
 namespace Excalibur.Views
@@ -15,14 +21,16 @@ namespace Excalibur.Views
     /// <summary>
     /// TaskManager.xaml 的交互逻辑
     /// </summary>
-    public partial class TaskManager : UserControl, IDisposable
+    public partial class AppContainer : UserControl, IDisposable, IView
     {
         static Logger mLogger = new Logger(MethodBase.GetCurrentMethod().DeclaringType);
         Process mProcess = null;
         IntPtr mParentHandle = IntPtr.Zero;
         bool mHasParent = false;
 
-        public TaskManager()
+        public string ID { get; set; }
+
+        public AppContainer()
         {
             UI.Culture = Thread.CurrentThread.CurrentUICulture;
 
@@ -32,23 +40,40 @@ namespace Excalibur.Views
             Panel.SizeChanged += OnPanelSizeChanged;
             Panel.IsVisibleChanged += OnPanelIsVisibleChanged;
 
-            Notice.Text = UI.Taskmgr_Notice;
+            Notice.Text = UI.Container_Notice;
         }
 
         private void OnPanelLoaded(object sender, RoutedEventArgs e)
         {
-            if (!mHasParent)
+            var entity = new ContainerConfigEntity();
+            entity.OnConfigChanged += OnConfigChanged;
+            XmlConfigurator.ConfigAndWatch(entity, new FileInfo("config/ContainerConfig.xml"));
+        }
+
+        private void OnConfigChanged(ICollection<ContainerModel> containers)
+        {
+            ContainerModel model = null;
+            foreach (var container in containers)
+            {
+                if (ID == container.ID)
+                {
+                    model = container;
+                    break;
+                }
+            }
+
+            if (!mHasParent && null != model)
             {
                 var hwnd = (HwndSource)PresentationSource.FromVisual(Panel);
                 if (hwnd != null && hwnd.Handle != IntPtr.Zero)
                 {
                     mParentHandle = hwnd.Handle;
-                    hwnd.AddHook(WndProc);
+                    hwnd.AddHook(this.WndProc);
                     try
                     {
                         if (mProcess == null)
                         {
-                            mProcess = GetTaskManagerProcess();
+                            mProcess = GetProcess(model.ProcessName, model.FullName, model.Param);
                         }
                         if (mProcess != null && mProcess.MainWindowHandle != IntPtr.Zero)
                         {
@@ -84,7 +109,7 @@ namespace Excalibur.Views
             catch (Exception ex)
             {
                 mLogger.Error($"Error while changing window visible, due to:{ex}");
-                this.Dispose();
+                Dispose();
             }
         }
 
@@ -131,12 +156,12 @@ namespace Excalibur.Views
             return IntPtr.Zero;
         }
 
-        private Process GetTaskManagerProcess()
+        private Process GetProcess(string processName, string fullName, string param)
         {
             Process result = null;
             try
             {
-                var processes = Process.GetProcessesByName("taskmgr");
+                var processes = Process.GetProcessesByName(processName);
                 foreach (var process in processes)
                 {
                     if (process.MainWindowHandle != IntPtr.Zero)
@@ -150,7 +175,8 @@ namespace Excalibur.Views
                 {
                     StartInfo = new ProcessStartInfo
                     {
-                        FileName = @"C:\Windows\System32\Taskmgr.exe",
+                        FileName = fullName,
+                        Arguments = param,
                         WindowStyle = ProcessWindowStyle.Minimized,
                         UseShellExecute = false,
                         //Verb = "runas",
@@ -168,7 +194,7 @@ namespace Excalibur.Views
             }
             catch (Exception ex)
             {
-                mLogger.Error($"Error while getting taskmgr process, due to:{ex}");
+                mLogger.Error($"Error while getting {processName} process, due to:{ex}");
                 if (ex is Win32Exception win32ex)
                 {
                     if (win32ex.NativeErrorCode.Equals(740))

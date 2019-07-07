@@ -112,7 +112,7 @@ namespace Tools.Business
                 return null;
             }
 
-            var viewId = $"{assemblyQualifiedName},{buttonInfo.Type}".ToGuid().ToString("B");
+            var viewId = buttonInfo.ID;
             if (views.TryGetValue(viewId, out object view))
             {
                 return view;

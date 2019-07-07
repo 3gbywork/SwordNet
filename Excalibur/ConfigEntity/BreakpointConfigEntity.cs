@@ -28,14 +28,12 @@ namespace Excalibur.Config
             XmlSerializer xmlSerializer = new XmlSerializer(typeof(Breakpoints));
             using (StringReader stringReader = new StringReader(xmlElement.OuterXml))
             {
-                if (xmlSerializer.Deserialize(stringReader) is Breakpoints breakpoint)
+                if (xmlSerializer.Deserialize(stringReader) is Breakpoints breakpoint
+                    && null != breakpoint.Breakpoint)
                 {
-                    if (breakpoint.Breakpoint != null)
+                    foreach (var bpoint in breakpoint.Breakpoint)
                     {
-                        foreach (var bpoint in breakpoint.Breakpoint)
-                        {
-                            result.Add(new BreakpointModel(bpoint));
-                        }
+                        result.Add(new BreakpointModel(bpoint));
                     }
                 }
             }

@@ -19,7 +19,7 @@ namespace Excalibur.Resources {
     // 类通过类似于 ResGen 或 Visual Studio 的工具自动生成的。
     // 若要添加或移除成员，请编辑 .ResX 文件，然后重新运行 ResGen
     // (以 /str 作为命令选项)，或重新生成 VS 项目。
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class UI {
@@ -47,7 +47,6 @@ namespace Excalibur.Resources {
         }
         
         /// <summary>
-        ///   使用此强类型资源类，为所有资源查找
         ///   重写当前线程的 CurrentUICulture 属性。
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -124,11 +123,11 @@ namespace Excalibur.Resources {
         }
         
         /// <summary>
-        ///   查找类似 TaskManager is not supported float mode, please dock it 的本地化字符串。
+        ///   查找类似 This is not supported float mode, please dock it 的本地化字符串。
         /// </summary>
-        public static string Taskmgr_Notice {
+        public static string Container_Notice {
             get {
-                return ResourceManager.GetString("Taskmgr_Notice", resourceCulture);
+                return ResourceManager.GetString("Container_Notice", resourceCulture);
             }
         }
     }

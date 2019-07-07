@@ -1,13 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26430.12
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28803.156
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tools", "Tools\Tools.csproj", "{C5D6F876-C25F-4F04-9CF0-4F6CC3802880}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Excalibur", "Excalibur\Excalibur.csproj", "{8966EC5B-7AA8-4E71-866E-0F8201CC9E27}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", "{005EE267-A946-480A-96B3-79ECAF45ED2F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheSeed", "TheSeed\TheSeed.csproj", "{EAC97527-C4AC-4A83-97C6-145327A1CFCD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,8 +29,15 @@ Global
 		{005EE267-A946-480A-96B3-79ECAF45ED2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{005EE267-A946-480A-96B3-79ECAF45ED2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{005EE267-A946-480A-96B3-79ECAF45ED2F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EAC97527-C4AC-4A83-97C6-145327A1CFCD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EAC97527-C4AC-4A83-97C6-145327A1CFCD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EAC97527-C4AC-4A83-97C6-145327A1CFCD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EAC97527-C4AC-4A83-97C6-145327A1CFCD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {13431120-7E43-4DB6-BD37-F96F76EE1F62}
 	EndGlobalSection
 EndGlobal

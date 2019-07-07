@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://3gbywork.github.io/schema/ContainerConfig.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="Apps">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" name="App">
+          <xs:complexType>
+            <xs:attribute name="ID" type="xs:ID" use="required" />
+            <xs:attribute name="ProcessName" type="xs:string" use="required" />
+            <xs:attribute name="FullName" type="xs:string" use="required" />
+            <xs:attribute name="Param" type="xs:string" use="optional" />
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

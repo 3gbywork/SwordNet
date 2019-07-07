@@ -1,6 +1,7 @@
 ﻿using CommonUtility.Logging;
 using System;
 using System.Reflection;
+using TheSeed;
 using Tools.Models;
 
 namespace Tools.Business
@@ -40,6 +41,10 @@ namespace Tools.Business
                         var view = panel.GetView(viewInfo);
                         if (view != null)
                         {
+                            if(view is IView seed)
+                            {
+                                seed.ID = viewInfo.ID;
+                            }
                             panel.Add(panel.NewItem(viewInfo, view));
                         }
                     }

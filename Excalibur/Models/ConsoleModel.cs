@@ -6,14 +6,11 @@ namespace Excalibur.Models
 {
     public class ConsoleModel : IComparable
     {
-        private AgentsAgent agent;
-
         public ConsoleModel(AgentsAgent agent)
         {
-            this.agent = agent;
             Name = agent.Name;
             Param = agent.Param;
-            Path = agent.Path.Replace(@"//", @"/").Trim();
+            Path = agent.Path.Replace(@"\\", @"/").Trim();
         }
 
         public string Alias { get; set; }

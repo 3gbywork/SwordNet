@@ -34,7 +34,7 @@
         DisplayName="任务管理器"
 				Icon="Images/taskmgr.png"
 				Assembly="Excalibur, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"
-				Type="Excalibur.Views.TaskManager"/>
+				Type="Excalibur.Views.AppContainer"/>
     <Module ID="console"
         Name="Console"
         DisplayName="控制台"

@@ -28,14 +28,12 @@ namespace Excalibur.Config
             XmlSerializer xmlSerializer = new XmlSerializer(typeof(Agents));
             using (StringReader stringReader = new StringReader(xmlElement.OuterXml))
             {
-                if (xmlSerializer.Deserialize(stringReader) is Agents agents)
+                if (xmlSerializer.Deserialize(stringReader) is Agents agents
+                    && null != agents.Agent)
                 {
-                    if (agents.Agent != null)
+                    foreach (var agent in agents.Agent)
                     {
-                        foreach (var agent in agents.Agent)
-                        {
-                            result.Add(new ConsoleModel(agent));
-                        }
+                        result.Add(new ConsoleModel(agent));
                     }
                 }
             }

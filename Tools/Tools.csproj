@@ -218,7 +218,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <None Include="log4net.config">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\app.manifest">
@@ -245,10 +245,10 @@
     <Resource Include="Images\tab_blue.png" />
     <Resource Include="Images\tools_black.ico" />
     <Resource Include="Images\tools_blue.ico" />
-    <Content Include="ToolsConfig.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    <None Include="ToolsConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <SubType>Designer</SubType>
-    </Content>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Page Include="ContentPanel\AvalonDock.xaml">
@@ -297,6 +297,12 @@
     <EmbeddedResource Include="Resources\UI.zh-Hans.resx">
       <SubType>Designer</SubType>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TheSeed\TheSeed.csproj">
+      <Project>{eac97527-c4ac-4a83-97c6-145327a1cfcd}</Project>
+      <Name>TheSeed</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\System.Data.SQLite.Core.1.0.105.1\build\net451\System.Data.SQLite.Core.targets" Condition="Exists('..\packages\System.Data.SQLite.Core.1.0.105.1\build\net451\System.Data.SQLite.Core.targets')" />

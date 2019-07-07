@@ -86,6 +86,7 @@
     <Compile Include="Business\ConsoleOperator.cs" />
     <Compile Include="Business\ProcessOperator.cs" />
     <Compile Include="ConfigEntity\BreakpointConfigEntity.cs" />
+    <Compile Include="ConfigEntity\ContainerConfigEntity.cs" />
     <Compile Include="ConfigEntity\ConsoleConfigEntity.cs" />
     <Compile Include="config\BreakpointConfig.cs">
       <DependentUpon>BreakpointConfig.xsd</DependentUpon>
@@ -93,8 +94,12 @@
     <Compile Include="config\ConsoleConfig.cs">
       <DependentUpon>ConsoleConfig.xsd</DependentUpon>
     </Compile>
+    <Compile Include="config\ContainerConfig.cs">
+      <DependentUpon>ContainerConfig.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Extensions\DispatcherExtension.cs" />
     <Compile Include="Models\BreakpointModel.cs" />
+    <Compile Include="Models\ContainerModel.cs" />
     <Compile Include="Models\ConsoleModel.cs" />
     <Compile Include="Models\ModelBase.cs" />
     <Compile Include="Resources\UI.Designer.cs">
@@ -121,8 +126,8 @@
     <Compile Include="Views\Console.xaml.cs">
       <DependentUpon>Console.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\TaskManager.xaml.cs">
-      <DependentUpon>TaskManager.xaml</DependentUpon>
+    <Compile Include="Views\AppContainer.xaml.cs">
+      <DependentUpon>AppContainer.xaml</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -137,15 +142,12 @@
     <None Include="config\BreakpointConfig.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="config\ConsoleConfig.xsc">
-      <DependentUpon>ConsoleConfig.xsd</DependentUpon>
-    </None>
     <None Include="config\ConsoleConfig.xsd">
       <SubType>Designer</SubType>
       <CustomToolNamespace>Excalibur.Config</CustomToolNamespace>
     </None>
-    <None Include="config\ConsoleConfig.xss">
-      <DependentUpon>ConsoleConfig.xsd</DependentUpon>
+    <None Include="config\ContainerConfig.xsd">
+      <SubType>Designer</SubType>
     </None>
     <None Include="packages.config">
       <SubType>Designer</SubType>
@@ -165,23 +167,33 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\TaskManager.xaml">
+    <Page Include="Views\AppContainer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="config\BreakpointConfig.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="config\ConsoleConfig.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    <None Include="config\BreakpointConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="config\ContainerConfig.xml">
       <SubType>Designer</SubType>
-    </Content>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="config\ConsoleConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </None>
     <Resource Include="Images\console.png" />
     <Resource Include="Images\taskmgr.png" />
     <Resource Include="Images\breakpoint.png" />
     <Resource Include="Images\excalibur.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TheSeed\TheSeed.csproj">
+      <Project>{eac97527-c4ac-4a83-97c6-145327a1cfcd}</Project>
+      <Name>TheSeed</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
