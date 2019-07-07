@@ -1,12 +1,11 @@
-﻿using CommonUtility.Extension;
-using CommonUtility.Logging;
-using CommonUtility.Security;
+﻿using CommonUtility.Logging;
 using Fluent;
 using Microsoft.Practices.Unity;
 using Prism.Regions;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Reflection;
 using System.Windows.Input;
 using Tools.Models;
@@ -69,8 +68,12 @@ namespace Tools.Business
             {
                 try
                 {
-                    var iconPath = string.Format("pack://application:,,,/{0};component/{1}",
-                    info.Assembly.Substring(0, info.Assembly.IndexOf(',')), info.Icon);
+                    var iconPath = AppDomain.CurrentDomain.BaseDirectory + info.Icon;
+                    if (!File.Exists(iconPath))
+                    {
+                        iconPath = string.Format("pack://application:,,,/{0};component/{1}",
+                            info.Assembly.Substring(0, info.Assembly.IndexOf(',')), info.Icon);
+                    }
                     Button ribbonButton = new Button()
                     {
                         Header = info.DisplayName,
