@@ -57,7 +57,7 @@ namespace Tools.ContentPanel
         {
             if (parameter is IRibbonButtonInfo info)
             {
-                ContentPanelUtility.AddViewToContentPanel<LayoutAnchorable>(info, this, v => v.Title.Equals(info.Name, StringComparison.OrdinalIgnoreCase));
+                ContentPanelUtility.AddViewToContentPanel<LayoutAnchorable>(info, this, v => v.Title.Equals(info.DisplayName, StringComparison.OrdinalIgnoreCase));
             }
         }
     }

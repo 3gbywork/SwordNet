@@ -106,7 +106,8 @@ namespace Tools.Business
         }
         #endregion
 
-        static Dictionary<string, object> views = new Dictionary<string, object>();
+        //去掉缓存
+        //static Dictionary<string, object> views = new Dictionary<string, object>();
         public static object GetView(string assemblyQualifiedName, IUnityContainer container, IRibbonButtonInfo buttonInfo)
         {
             if (container == null || buttonInfo == null)
@@ -116,36 +117,36 @@ namespace Tools.Business
             }
 
             var viewId = buttonInfo.ID;
-            if (views.TryGetValue(viewId, out object view))
-            {
-                return view;
-            }
+            //if (views.TryGetValue(viewId, out object view))
+            //{
+            //    return view;
+            //}
 
             var assembly = Assembly.Load(buttonInfo.Assembly);
-            view = container.Resolve(assembly.GetType(buttonInfo.Type));
-            if (view != null)
-            {
-                views[viewId] = view;
-            }
+            var view = container.Resolve(assembly.GetType(buttonInfo.Type));
+            //if (view != null)
+            //{
+            //    views[viewId] = view;
+            //}
             return view;
         }
 
         public static void Dispose()
         {
-            foreach (var view in views)
-            {
-                if (view.Value is IDisposable disposable)
-                {
-                    try
-                    {
-                        disposable.Dispose();
-                    }
-                    catch (Exception ex)
-                    {
-                        mLogger.Error($"Error while disposing view resources, due to:{ex}");
-                    }
-                }
-            }
+            //foreach (var view in views)
+            //{
+            //    if (view.Value is IDisposable disposable)
+            //    {
+            //        try
+            //        {
+            //            disposable.Dispose();
+            //        }
+            //        catch (Exception ex)
+            //        {
+            //            mLogger.Error($"Error while disposing view resources, due to:{ex}");
+            //        }
+            //    }
+            //}
         }
     }
 }

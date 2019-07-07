@@ -28,6 +28,7 @@ namespace Excalibur.Views
         Process mProcess = null;
         IntPtr mParentHandle = IntPtr.Zero;
         bool mHasParent = false;
+        ContainerConfigEntity mConfig = null;
 
         public string ID { get; set; }
 
@@ -46,9 +47,12 @@ namespace Excalibur.Views
 
         private void OnPanelLoaded(object sender, RoutedEventArgs e)
         {
-            var entity = new ContainerConfigEntity();
-            entity.OnConfigChanged += OnConfigChanged;
-            XmlConfigurator.ConfigAndWatch(entity, new FileInfo("config/ContainerConfig.xml"));
+            if (null == mConfig)
+            {
+                mConfig = new ContainerConfigEntity();
+                mConfig.OnConfigChanged += OnConfigChanged;
+                XmlConfigurator.ConfigAndWatch(mConfig, new FileInfo("config/ContainerConfig.xml"));
+            }
         }
 
         private void OnConfigChanged(ICollection<ContainerModel> containers)

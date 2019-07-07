@@ -51,7 +51,7 @@ namespace Tools.ContentPanel
         {
             if (parameter is IRibbonButtonInfo info)
             {
-                ContentPanelUtility.AddViewToContentPanel<TabItem>(info, this, v => v.Header.Equals(info.Name));
+                ContentPanelUtility.AddViewToContentPanel<TabItem>(info, this, v => v.Header.Equals(info.DisplayName));
             }
         }
     }
