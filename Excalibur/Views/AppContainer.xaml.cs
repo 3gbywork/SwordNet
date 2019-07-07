@@ -90,7 +90,7 @@ namespace Excalibur.Views
                     }
                     catch (Exception ex)
                     {
-                        mLogger.Error($"Error while setting window parent, due to:{ex}");
+                        mLogger.Error($"{ID} -- Error while setting window parent, due to:{ex}");
                         this.Dispose();
                     }
                 }
@@ -109,7 +109,7 @@ namespace Excalibur.Views
             }
             catch (Exception ex)
             {
-                mLogger.Error($"Error while changing window visible, due to:{ex}");
+                mLogger.Error($"{ID} -- Error while changing window visible, due to:{ex}");
                 Dispose();
             }
         }
@@ -138,7 +138,7 @@ namespace Excalibur.Views
             }
             catch (Exception ex)
             {
-                mLogger.Error($"Error while resizing window, due to:{ex}");
+                mLogger.Error($"{ID} -- Error while resizing window, due to:{ex}");
                 this.Dispose();
             }
         }
@@ -171,7 +171,7 @@ namespace Excalibur.Views
                     }
                 }
 
-                mLogger.Info("Creat new process.");
+                mLogger.Info($"{ID} -- Creat new process: {processName} full name: {fullName} param: {param}.");
                 result = new Process
                 {
                     StartInfo = new ProcessStartInfo
@@ -195,7 +195,7 @@ namespace Excalibur.Views
             }
             catch (Exception ex)
             {
-                mLogger.Error($"Error while getting {processName} process, due to:{ex}");
+                mLogger.Error($"{ID} -- Error while getting {processName} process, due to:{ex}");
                 if (ex is Win32Exception win32ex)
                 {
                     if (win32ex.NativeErrorCode.Equals(740))
@@ -221,7 +221,7 @@ namespace Excalibur.Views
                         {
                             if (!mProcess.HasExited)
                             {
-                                mLogger.Info($"Killing task manager process.");
+                                mLogger.Info($"{ID} -- Killing process.");
                                 mProcess.Kill();
                             }
                         }
@@ -230,7 +230,7 @@ namespace Excalibur.Views
             }
             catch (Exception ex)
             {
-                mLogger.Warn($"Exception while disposing process, due to:{ex}");
+                mLogger.Warn($"{ID} -- Exception while disposing process, due to:{ex}");
             }
             finally
             {
