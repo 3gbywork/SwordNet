@@ -8,6 +8,7 @@
             <xs:attribute name="ID" type="xs:ID" use="required" />
             <xs:attribute name="ProcessName" type="xs:string" use="required" />
             <xs:attribute name="FullName" type="xs:string" use="required" />
+            <xs:attribute name="WorkDir" type="xs:string" use="optional" />
             <xs:attribute name="Param" type="xs:string" use="optional" />
           </xs:complexType>
         </xs:element>

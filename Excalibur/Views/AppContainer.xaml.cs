@@ -78,7 +78,7 @@ namespace Excalibur.Views
                     {
                         if (mProcess == null)
                         {
-                            mProcess = GetProcess(model.ProcessName, model.FullName, model.Param);
+                            mProcess = GetProcess(model.ProcessName, model.FullName, model.Param, model.WorkDir);
                         }
                         if (mProcess != null && mProcess.MainWindowHandle != IntPtr.Zero)
                         {
@@ -161,9 +161,9 @@ namespace Excalibur.Views
             return IntPtr.Zero;
         }
 
-        private Process GetProcess(string processName, string fullName, string param)
+        private Process GetProcess(string processName, string fullName, string param, string workdir)
         {
-            Process result = null;
+            Process result;
             try
             {
                 var processes = Process.GetProcessesByName(processName);
@@ -175,7 +175,7 @@ namespace Excalibur.Views
                     }
                 }
 
-                mLogger.Info($"{ID} -- Creat new process: {processName} full name: {fullName} param: {param}.");
+                mLogger.Info($"{ID} -- Creat new process: {processName} full name: {fullName} param: {param} workdir: {workdir}.");
                 result = new Process
                 {
                     StartInfo = new ProcessStartInfo
@@ -184,6 +184,7 @@ namespace Excalibur.Views
                         Arguments = param,
                         WindowStyle = ProcessWindowStyle.Minimized,
                         UseShellExecute = false,
+                        WorkingDirectory = workdir,
                         //Verb = "runas",
                     }
                 };

@@ -52,6 +52,8 @@ public partial class AppsApp {
     
     private string fullNameField;
     
+    private string workDirField;
+    
     private string paramField;
     
     /// <remarks/>
@@ -84,6 +86,17 @@ public partial class AppsApp {
         }
         set {
             this.fullNameField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlAttributeAttribute()]
+    public string WorkDir {
+        get {
+            return this.workDirField;
+        }
+        set {
+            this.workDirField = value;
         }
     }
     

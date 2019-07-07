@@ -6,10 +6,13 @@ namespace Excalibur.Models
     {
         public ContainerModel(AppsApp app)
         {
+            //required
             ID = app.ID;
             ProcessName = app.ProcessName;
-            Param = app.Param;
             FullName = app.FullName.Replace(@"\\", @"/").Trim();
+            //optional
+            Param = app.Param;
+            WorkDir = app.WorkDir;
         }
 
         public string ID { get; set; }
@@ -17,6 +20,7 @@ namespace Excalibur.Models
         public string ProcessName { get; set; }
         public string FullName { get; set; }
         public string Param { get; set; }
+        public string WorkDir { get; set; }
 
         public int CompareTo(object obj)
         {
