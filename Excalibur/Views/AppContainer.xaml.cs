@@ -14,6 +14,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Interop;
 using TheSeed;
+using WinApi.Net.Geometry;
 using WinApi.Net.User32;
 
 namespace Excalibur.Views
@@ -77,8 +78,8 @@ namespace Excalibur.Views
                         }
                         if (mProcess != null && mProcess.MainWindowHandle != IntPtr.Zero)
                         {
-                            NativeMethods.SetWindowLongPtr(mProcess.MainWindowHandle, (int)WindowLongFlags.GWL_STYLE, (IntPtr)WindowStyles.WS_VISIBLE);
-                            var result = NativeMethods.SetParent(mProcess.MainWindowHandle, mParentHandle);
+                            User32Methods.SetWindowLongPtr(mProcess.MainWindowHandle, (int)WindowLongFlags.GWL_STYLE, (IntPtr)WindowStyles.WS_VISIBLE);
+                            var result = User32Methods.SetParent(mProcess.MainWindowHandle, mParentHandle);
 
                             mHasParent = result == null ? false : result == IntPtr.Zero ? false : true;
                             if (mHasParent)
@@ -103,7 +104,7 @@ namespace Excalibur.Views
                 if (mProcess != null && mProcess.MainWindowHandle != IntPtr.Zero)
                 {
                     var isVisible = (bool)e.NewValue;
-                    NativeMethods.ShowWindow(mProcess.MainWindowHandle, isVisible ? ShowWindowCommands.SW_SHOW : ShowWindowCommands.SW_HIDE);
+                    User32Methods.ShowWindow(mProcess.MainWindowHandle, isVisible ? ShowWindowCommands.SW_SHOW : ShowWindowCommands.SW_HIDE);
                 }
             }
             catch (Exception ex)
@@ -127,11 +128,11 @@ namespace Excalibur.Views
                     var curPoint = PointToScreen(new System.Windows.Point(0, 0));
                     int offsetLeft = 0;
                     int offsetTop = 0;
-                    if (NativeMethods.GetWindowRect(parentHandle, out Rectangle rect))
+                    if (User32Methods.GetWindowRect(parentHandle, out Rectangle rect))
                     {
                         offsetLeft = (int)Math.Round(curPoint.X, 0) - rect.Left - 9;
                         offsetTop = (int)Math.Round(curPoint.Y, 0) - rect.Top - 30;
-                        NativeMethods.MoveWindow(mProcess.MainWindowHandle, offsetLeft, offsetTop, width + 28, height + 28, true);
+                        User32Methods.MoveWindow(mProcess.MainWindowHandle, offsetLeft, offsetTop, width + 28, height + 28, true);
                     }
                 }
             }
