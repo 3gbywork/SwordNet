@@ -120,6 +120,9 @@
   <data name="RibbonUI_AddIns" xml:space="preserve">
     <value>插件</value>
   </data>
+  <data name="RibbonUI_AddInsGroup" xml:space="preserve">
+    <value>插件组</value>
+  </data>
   <data name="RibbonUI_Quit" xml:space="preserve">
     <value>退出</value>
   </data>

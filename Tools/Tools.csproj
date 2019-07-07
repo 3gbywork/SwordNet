@@ -290,6 +290,7 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\UI.resx">
+      <SubType>Designer</SubType>
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>UI.Designer.cs</LastGenOutput>
     </EmbeddedResource>

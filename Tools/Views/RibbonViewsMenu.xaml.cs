@@ -1,4 +1,5 @@
-﻿using System.Windows.Controls;
+﻿using System.ComponentModel;
+using System.Windows.Controls;
 using Tools.Business;
 using Tools.Commands;
 using Tools.Config;
@@ -16,9 +17,12 @@ namespace Tools.Views
         {
             InitializeComponent();
 
-            var views = ToolsConfig.GetInstance().Views;
-            var command = new ContentPanelCommand(ContentPanelModule.RegionManager, PrismRegionNameConstant.CenterRegion);
-            ViewsContainer.ItemsSource = RibbonButtonUtility.GenerateRibbonButtons(command, views);
+            if (!DesignerProperties.GetIsInDesignMode(this))
+            {
+                var views = ToolsConfig.GetInstance().Views;
+                var command = new ContentPanelCommand(ContentPanelModule.RegionManager, PrismRegionNameConstant.CenterRegion);
+                ViewsContainer.ItemsSource = RibbonButtonUtility.GenerateRibbonButtons(command, views);
+            }
         }
     }
 }

@@ -48,6 +48,7 @@ namespace Tools.ViewModels
         public string RibbonUI_Views => Resources.UI.RibbonUI_Views;
         public string RibbonUI_ViewsGroup => Resources.UI.RibbonUI_ViewsGroup;
         public string RibbonUI_AddIns => Resources.UI.RibbonUI_AddIns;
+        public string RibbonUI_AddInsGroup => Resources.UI.RibbonUI_AddInsGroup;
         public string RibbonUI_Saying => Resources.UI.RibbonUI_Saying;
         public string RibbonUI_UsedMemory => Resources.UI.RibbonUI_UsedMemory;
 

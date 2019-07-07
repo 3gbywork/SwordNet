@@ -8,7 +8,9 @@
             <xs:sequence>
               <xs:element minOccurs="0" maxOccurs="unbounded" name="ContentPanelView">
                 <xs:complexType>
+                  <xs:attribute name="ID" type="xs:ID" use="required" />
                   <xs:attribute name="Name" type="xs:string" use="required" />
+                  <xs:attribute name="DisplayName" type="xs:string" use="required" />
                   <xs:attribute name="Icon" type="xs:string" use="required" />
                   <xs:attribute name="Assembly" type="xs:string" use="required" />
                   <xs:attribute name="Type" type="xs:string" use="required" />
@@ -22,7 +24,9 @@
             <xs:sequence>
               <xs:element minOccurs="0" maxOccurs="unbounded" name="Module">
                 <xs:complexType>
+                  <xs:attribute name="ID" type="xs:ID" use="required" />
                   <xs:attribute name="Name" type="xs:string" use="required" />
+                  <xs:attribute name="DisplayName" type="xs:string" use="required" />
                   <xs:attribute name="Icon" type="xs:string" use="required" />
                   <xs:attribute name="Assembly" type="xs:string" use="required" />
                   <xs:attribute name="Type" type="xs:string" use="required" />

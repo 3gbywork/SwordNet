@@ -2,34 +2,48 @@
 <Configuration xmlns="http://3gbywork.github.io/schema/ToolsConfig.xsd">
   <ContentPanelViews>
     <!-- name: display name -->
-    <ContentPanelView Name="AvalonDock"
+    <ContentPanelView ID="dock"
+              Name="AvalonDock"
+              DisplayName="Dock"
 						  Icon="Images/dock_blue.png"
 						  Assembly="Tools, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"
 						  Type="Tools.ContentPanel.AvalonDock" />
-    <ContentPanelView Name="TabControl"
+    <ContentPanelView ID="tab"
+              Name="TabControl"
+              DisplayName="Tab"
 						  Icon="Images/tab_blue.png"
 						  Assembly="Tools, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"
 						  Type="Tools.ContentPanel.TabControl" />
-    <ContentPanelView Name="TabControl"
+    <ContentPanelView ID="tab"
+              Name="TabControl"
+              DisplayName="Tab"
 						  Icon="Images/tab_blue.png"
 						  Assembly="Tools, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"
 						  Type="Tools.ContentPanel.TabControl" />
   </ContentPanelViews>
 
   <Modules>
-    <Module Name="Breakpoint"
+    <Module ID="breakpoint"
+        Name="Breakpoint"
+        DisplayName="断点"
 				Icon="Images/breakpoint.png"
 				Assembly="Excalibur, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"
 				Type="Excalibur.Views.Breakpoint"/>
-    <Module Name="Taskmgr"
+    <Module ID="taskmgr"
+        Name="Taskmgr"
+        DisplayName="任务管理器"
 				Icon="Images/taskmgr.png"
 				Assembly="Excalibur, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"
 				Type="Excalibur.Views.TaskManager"/>
-    <Module Name="Console"
+    <Module ID="console"
+        Name="Console"
+        DisplayName="控制台"
 				Icon="Images/console.png"
 				Assembly="Excalibur, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"
 				Type="Excalibur.Views.Console"/>
-    <Module Name="Console"
+    <Module ID="console"
+        Name="Console"
+        DisplayName="控制台"
 				Icon="Images/console.png"
 				Assembly="Excalibur, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"
 				Type="Excalibur.Views.Console"/>

@@ -1,8 +1,6 @@
 ﻿using CommonUtility.Lock;
-using CommonUtility.Logging;
 using System.Collections.Generic;
 using System.IO;
-using System.Reflection;
 using System.Xml.Serialization;
 using Tools.Models;
 
@@ -11,7 +9,6 @@ namespace Tools.Config
     public class ToolsConfig
     {
         const string configFilePath = "ToolsConfig.xml";
-        static Logger mLogger = new Logger(MethodBase.GetCurrentMethod().DeclaringType);
         static object mLocker = Locker.GetLocker(nameof(ToolsConfig));
         static ToolsConfig instance = null;
 

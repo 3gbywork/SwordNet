@@ -120,6 +120,9 @@
   <data name="RibbonUI_AddIns" xml:space="preserve">
     <value>AddIns</value>
   </data>
+  <data name="RibbonUI_AddInsGroup" xml:space="preserve">
+    <value>AddIns Group</value>
+  </data>
   <data name="RibbonUI_Quit" xml:space="preserve">
     <value>Exit</value>
   </data>

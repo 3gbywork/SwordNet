@@ -39,7 +39,7 @@ namespace Tools.ContentPanel
         {
             return new LayoutAnchorable
             {
-                Title = info.Name,
+                Title = info.DisplayName,
                 Content = view,
                 CanClose = false,
                 //CanAutoHide = false,

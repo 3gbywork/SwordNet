@@ -8,275 +8,326 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using System.Xml.Serialization;
+
 // 
-// 此源代码由 xsd 自动生成, Version=4.6.1055.0。
+// 此源代码由 xsd 自动生成, Version=4.7.3081.0。
 // 
-namespace Tools {
-    using System.Xml.Serialization;
+
+
+/// <remarks/>
+[System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.7.3081.0")]
+[System.SerializableAttribute()]
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.ComponentModel.DesignerCategoryAttribute("code")]
+[System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://3gbywork.github.io/schema/ToolsConfig.xsd")]
+[System.Xml.Serialization.XmlRootAttribute(Namespace="http://3gbywork.github.io/schema/ToolsConfig.xsd", IsNullable=false)]
+public partial class Configuration {
     
+    private ConfigurationContentPanelView[] contentPanelViewsField;
+    
+    private ConfigurationModule[] modulesField;
+    
+    private ConfigurationSaying sayingField;
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://3gbywork.github.io/schema/ToolsConfig.xsd")]
-    [System.Xml.Serialization.XmlRootAttribute(Namespace="http://3gbywork.github.io/schema/ToolsConfig.xsd", IsNullable=false)]
-    public partial class Configuration {
-        
-        private ConfigurationContentPanelView[] contentPanelViewsField;
-        
-        private ConfigurationModule[] modulesField;
-        
-        private ConfigurationSaying sayingField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlArrayItemAttribute("ContentPanelView", IsNullable=false)]
-        public ConfigurationContentPanelView[] ContentPanelViews {
-            get {
-                return this.contentPanelViewsField;
-            }
-            set {
-                this.contentPanelViewsField = value;
-            }
+    [System.Xml.Serialization.XmlArrayItemAttribute("ContentPanelView", IsNullable=false)]
+    public ConfigurationContentPanelView[] ContentPanelViews {
+        get {
+            return this.contentPanelViewsField;
         }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlArrayItemAttribute("Module", IsNullable=false)]
-        public ConfigurationModule[] Modules {
-            get {
-                return this.modulesField;
-            }
-            set {
-                this.modulesField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public ConfigurationSaying Saying {
-            get {
-                return this.sayingField;
-            }
-            set {
-                this.sayingField = value;
-            }
+        set {
+            this.contentPanelViewsField = value;
         }
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://3gbywork.github.io/schema/ToolsConfig.xsd")]
-    public partial class ConfigurationContentPanelView {
-        
-        private string nameField;
-        
-        private string iconField;
-        
-        private string assemblyField;
-        
-        private string typeField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string Name {
-            get {
-                return this.nameField;
-            }
-            set {
-                this.nameField = value;
-            }
+    [System.Xml.Serialization.XmlArrayItemAttribute("Module", IsNullable=false)]
+    public ConfigurationModule[] Modules {
+        get {
+            return this.modulesField;
         }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string Icon {
-            get {
-                return this.iconField;
-            }
-            set {
-                this.iconField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string Assembly {
-            get {
-                return this.assemblyField;
-            }
-            set {
-                this.assemblyField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string Type {
-            get {
-                return this.typeField;
-            }
-            set {
-                this.typeField = value;
-            }
+        set {
+            this.modulesField = value;
         }
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://3gbywork.github.io/schema/ToolsConfig.xsd")]
-    public partial class ConfigurationModule {
-        
-        private string nameField;
-        
-        private string iconField;
-        
-        private string assemblyField;
-        
-        private string typeField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string Name {
-            get {
-                return this.nameField;
-            }
-            set {
-                this.nameField = value;
-            }
+    public ConfigurationSaying Saying {
+        get {
+            return this.sayingField;
         }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string Icon {
-            get {
-                return this.iconField;
-            }
-            set {
-                this.iconField = value;
-            }
+        set {
+            this.sayingField = value;
         }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string Assembly {
-            get {
-                return this.assemblyField;
-            }
-            set {
-                this.assemblyField = value;
-            }
+    }
+}
+
+/// <remarks/>
+[System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.7.3081.0")]
+[System.SerializableAttribute()]
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.ComponentModel.DesignerCategoryAttribute("code")]
+[System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://3gbywork.github.io/schema/ToolsConfig.xsd")]
+public partial class ConfigurationContentPanelView {
+    
+    private string idField;
+    
+    private string nameField;
+    
+    private string displayNameField;
+    
+    private string iconField;
+    
+    private string assemblyField;
+    
+    private string typeField;
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlAttributeAttribute(DataType="ID")]
+    public string ID {
+        get {
+            return this.idField;
         }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string Type {
-            get {
-                return this.typeField;
-            }
-            set {
-                this.typeField = value;
-            }
+        set {
+            this.idField = value;
         }
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://3gbywork.github.io/schema/ToolsConfig.xsd")]
-    public partial class ConfigurationSaying {
-        
-        private ConfigurationSayingCacheDB cacheDBField;
-        
-        private string urlField;
-        
-        private string paramField;
-        
-        private string xPathField;
-        
-        private ushort totleItemsField;
-        
-        /// <remarks/>
-        public ConfigurationSayingCacheDB CacheDB {
-            get {
-                return this.cacheDBField;
-            }
-            set {
-                this.cacheDBField = value;
-            }
+    [System.Xml.Serialization.XmlAttributeAttribute()]
+    public string Name {
+        get {
+            return this.nameField;
         }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string Url {
-            get {
-                return this.urlField;
-            }
-            set {
-                this.urlField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string Param {
-            get {
-                return this.paramField;
-            }
-            set {
-                this.paramField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string XPath {
-            get {
-                return this.xPathField;
-            }
-            set {
-                this.xPathField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public ushort TotleItems {
-            get {
-                return this.totleItemsField;
-            }
-            set {
-                this.totleItemsField = value;
-            }
+        set {
+            this.nameField = value;
         }
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://3gbywork.github.io/schema/ToolsConfig.xsd")]
-    public partial class ConfigurationSayingCacheDB {
-        
-        private string connectionStringField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string ConnectionString {
-            get {
-                return this.connectionStringField;
-            }
-            set {
-                this.connectionStringField = value;
-            }
+    [System.Xml.Serialization.XmlAttributeAttribute()]
+    public string DisplayName {
+        get {
+            return this.displayNameField;
+        }
+        set {
+            this.displayNameField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlAttributeAttribute()]
+    public string Icon {
+        get {
+            return this.iconField;
+        }
+        set {
+            this.iconField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlAttributeAttribute()]
+    public string Assembly {
+        get {
+            return this.assemblyField;
+        }
+        set {
+            this.assemblyField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlAttributeAttribute()]
+    public string Type {
+        get {
+            return this.typeField;
+        }
+        set {
+            this.typeField = value;
+        }
+    }
+}
+
+/// <remarks/>
+[System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.7.3081.0")]
+[System.SerializableAttribute()]
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.ComponentModel.DesignerCategoryAttribute("code")]
+[System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://3gbywork.github.io/schema/ToolsConfig.xsd")]
+public partial class ConfigurationModule {
+    
+    private string idField;
+    
+    private string nameField;
+    
+    private string displayNameField;
+    
+    private string iconField;
+    
+    private string assemblyField;
+    
+    private string typeField;
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlAttributeAttribute(DataType="ID")]
+    public string ID {
+        get {
+            return this.idField;
+        }
+        set {
+            this.idField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlAttributeAttribute()]
+    public string Name {
+        get {
+            return this.nameField;
+        }
+        set {
+            this.nameField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlAttributeAttribute()]
+    public string DisplayName {
+        get {
+            return this.displayNameField;
+        }
+        set {
+            this.displayNameField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlAttributeAttribute()]
+    public string Icon {
+        get {
+            return this.iconField;
+        }
+        set {
+            this.iconField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlAttributeAttribute()]
+    public string Assembly {
+        get {
+            return this.assemblyField;
+        }
+        set {
+            this.assemblyField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlAttributeAttribute()]
+    public string Type {
+        get {
+            return this.typeField;
+        }
+        set {
+            this.typeField = value;
+        }
+    }
+}
+
+/// <remarks/>
+[System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.7.3081.0")]
+[System.SerializableAttribute()]
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.ComponentModel.DesignerCategoryAttribute("code")]
+[System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://3gbywork.github.io/schema/ToolsConfig.xsd")]
+public partial class ConfigurationSaying {
+    
+    private ConfigurationSayingCacheDB cacheDBField;
+    
+    private string urlField;
+    
+    private string paramField;
+    
+    private string xPathField;
+    
+    private ushort totleItemsField;
+    
+    /// <remarks/>
+    public ConfigurationSayingCacheDB CacheDB {
+        get {
+            return this.cacheDBField;
+        }
+        set {
+            this.cacheDBField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlAttributeAttribute()]
+    public string Url {
+        get {
+            return this.urlField;
+        }
+        set {
+            this.urlField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlAttributeAttribute()]
+    public string Param {
+        get {
+            return this.paramField;
+        }
+        set {
+            this.paramField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlAttributeAttribute()]
+    public string XPath {
+        get {
+            return this.xPathField;
+        }
+        set {
+            this.xPathField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlAttributeAttribute()]
+    public ushort TotleItems {
+        get {
+            return this.totleItemsField;
+        }
+        set {
+            this.totleItemsField = value;
+        }
+    }
+}
+
+/// <remarks/>
+[System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.7.3081.0")]
+[System.SerializableAttribute()]
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.ComponentModel.DesignerCategoryAttribute("code")]
+[System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://3gbywork.github.io/schema/ToolsConfig.xsd")]
+public partial class ConfigurationSayingCacheDB {
+    
+    private string connectionStringField;
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlAttributeAttribute()]
+    public string ConnectionString {
+        get {
+            return this.connectionStringField;
+        }
+        set {
+            this.connectionStringField = value;
         }
     }
 }

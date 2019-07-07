@@ -25,9 +25,9 @@ namespace Tools
             Tools.Resources.UI.Culture = culture;
 
             AppDomain.CurrentDomain.UnhandledException += (sender, e) =>
-              {
-                  strapper?.Dispose();
-              };
+            {
+                strapper?.Dispose();
+            };
         }
 
         protected override void OnStartup(StartupEventArgs e)

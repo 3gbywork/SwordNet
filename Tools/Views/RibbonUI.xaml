@@ -32,7 +32,7 @@
             </fluent:RibbonTabItem>
 
             <fluent:RibbonTabItem x:Name="AddInRibbonTabItem" Header="{Binding RibbonUI_AddIns}" >
-                <fluent:RibbonGroupBox Header="group">
+                <fluent:RibbonGroupBox Header="{Binding RibbonUI_AddInsGroup}">
                     <local:RibbonAddInsMenu />
                 </fluent:RibbonGroupBox>
             </fluent:RibbonTabItem>

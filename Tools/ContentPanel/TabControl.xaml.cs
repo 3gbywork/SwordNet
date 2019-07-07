@@ -37,7 +37,7 @@ namespace Tools.ContentPanel
         {
             return new TabItem()
             {
-                Header = info.Name,
+                Header = info.DisplayName,
                 Content = view,
             };
         }

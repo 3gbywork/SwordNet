@@ -1,4 +1,5 @@
-﻿using System.Windows.Controls;
+﻿using System.ComponentModel;
+using System.Windows.Controls;
 using Tools.Business;
 using Tools.Commands;
 using Tools.Config;
@@ -14,9 +15,12 @@ namespace Tools.Views
         {
             InitializeComponent();
 
-            var modules = ToolsConfig.GetInstance().Modules;
-            var command = new AddInCommand();
-            AddInsContainer.ItemsSource = RibbonButtonUtility.GenerateRibbonButtons(command, modules);
+            if (!DesignerProperties.GetIsInDesignMode(this))
+            {
+                var modules = ToolsConfig.GetInstance().Modules;
+                var command = new AddInCommand();
+                AddInsContainer.ItemsSource = RibbonButtonUtility.GenerateRibbonButtons(command, modules);
+            }
         }
     }
 }

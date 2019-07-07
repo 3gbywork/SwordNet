@@ -53,7 +53,6 @@ namespace Tools.Business
                     ribbonButtonInfos.Remove(info);
                 }
             }
-            assembly = null;
         }
 
         static public IEnumerable GenerateRibbonButtons<T>(ICommand command, SortedSet<T> ribbonButtonInfos) where T : IRibbonButtonInfo
@@ -74,7 +73,7 @@ namespace Tools.Business
                     info.Assembly.Substring(0, info.Assembly.IndexOf(',')), info.Icon);
                     Button ribbonButton = new Button()
                     {
-                        Header = info.Name,
+                        Header = info.DisplayName,
                         Icon = iconPath,
                         LargeIcon = iconPath,
                         Command = command,
@@ -85,7 +84,7 @@ namespace Tools.Business
                 }
                 catch (Exception ex)
                 {
-                    mLogger.Error($"Error while generating button:{info.Name}, due to:{ex}");
+                    mLogger.Error($"Error while generating button:{info.ID}, due to:{ex}");
                 }
             }
 
